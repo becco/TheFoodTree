@@ -1,19 +1,22 @@
 package com.fwa.thefoodtree;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.fwa.thefoodtree.view.FTFragment;
+import com.fwa.thefoodtree.fragments.LogIngredientsFragment;
+import com.fwa.thefoodtree.fragments.LogMenuFragment;
 
 /* This is our Main Activity, launch point for the app */
 
@@ -25,7 +28,7 @@ public class App extends Activity {
 
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
-    private String[] mPlanetTitles;
+    private String[] mMenuItemTitles;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,7 @@ public class App extends Activity {
 		setContentView(R.layout.activity_app);
 		
 		mTitle = mDrawerTitle = getTitle();
-        mPlanetTitles = getResources().getStringArray(R.array.menu_item_array);
+        mMenuItemTitles = getResources().getStringArray(R.array.menu_item_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
@@ -41,7 +44,7 @@ public class App extends Activity {
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         // set up the drawer's list view with items and click listener
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-                R.layout.navigation_drawer_list_item, mPlanetTitles));
+                R.layout.navigation_drawer_list_item, mMenuItemTitles));
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
         // enable ActionBar app icon to behave as action to toggle nav drawer
@@ -73,13 +76,6 @@ public class App extends Activity {
             selectItem(0);
         }
 	}
-	
-//	@Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.main, menu);
-//        return super.onCreateOptionsMenu(menu);
-//    }
 
     /* Called whenever we call invalidateOptionsMenu() */
 //    @Override
@@ -97,22 +93,7 @@ public class App extends Activity {
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-        // Handle action buttons
-//        switch(item.getItemId()) {
-//        case R.id.action_websearch:
-//            // create intent to perform web search for this planet
-//            Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-//            intent.putExtra(SearchManager.QUERY, getActionBar().getTitle());
-//            // catch event that there's no activity to handle intent
-//            if (intent.resolveActivity(getPackageManager()) != null) {
-//                startActivity(intent);
-//            } else {
-//                Toast.makeText(this, R.string.app_not_available, Toast.LENGTH_LONG).show();
-//            }
-//            return true;
-//        default:
-            return super.onOptionsItemSelected(item);
-        //}
+        return super.onOptionsItemSelected(item);
     }
 
     /* The click listener for ListView in the navigation drawer */
@@ -124,21 +105,45 @@ public class App extends Activity {
     }
 
     private void selectItem(int position) {
-        // update the main content by replacing fragments
-    	FTFragment fragment = new FTFragment();
-        Bundle args = new Bundle();
-        args.putInt(FTFragment.ARG_MENU_ITEM, position);
-        fragment.setArguments(args);
-
+    	
+    	/* What kind of fragment do we want to display? */
+    	Fragment fragment = this.chooseFragment(position);
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
-        // update selected item and title, then close the drawer
+        /* update selected item and title, then close the drawer */
         mDrawerList.setItemChecked(position, true);
-        setTitle(mPlanetTitles[position]);
+        setTitle(mMenuItemTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
     }
+    
+    private Fragment chooseFragment(int pos) {
 
+	    Fragment fragment;
+	    Bundle args = new Bundle();
+	    args.putInt(LogIngredientsFragment.ARG_MENU_ITEM, pos);
+	    Log.d("debug", Integer.toString(pos)); 
+	    switch(pos) {
+	    	//Log ingredients
+	    	case 0:
+	    		fragment = new LogIngredientsFragment();
+	            args.putInt(LogIngredientsFragment.ARG_MENU_ITEM, pos);
+	        //Log from menu
+	        case 1:
+	    	    fragment = new LogMenuFragment();
+	            args.putInt(LogMenuFragment.ARG_MENU_ITEM, pos);
+	        //Daily report
+	        case 2:
+	    	    fragment = new LogIngredientsFragment();
+	            args.putInt(LogIngredientsFragment.ARG_MENU_ITEM, pos);
+	       default:
+	    	   	fragment = new LogIngredientsFragment();
+	    }
+        fragment.setArguments(args);
+        return fragment;
+    }
+    
+    /* Set the activity title */
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;

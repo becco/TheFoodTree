@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-//import com.fwa.thefoodtree.R;
+import com.fwa.thefoodtree.R;
 
 public class LogIngredientsFragment extends FTFragment {
 
