@@ -11,7 +11,7 @@ public final class R {
     public static final class array {
         /**   Navigation Strings 
          */
-        public static final int planets_array=0x7f060000;
+        public static final int menu_item_array=0x7f060000;
     }
     public static final class attr {
     }
@@ -27,28 +27,26 @@ public final class R {
     }
     public static final class drawable {
         public static final int drawer_shadow=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
+        public static final int ic_drawer=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f090004;
+        public static final int action_settings=0x7f090003;
         public static final int content_frame=0x7f090001;
         public static final int drawer_layout=0x7f090000;
-        public static final int image=0x7f090003;
         public static final int left_drawer=0x7f090002;
     }
     public static final class layout {
         public static final int activity_app=0x7f030000;
-        public static final int drawer_list_item=0x7f030001;
-        public static final int fragment_planet=0x7f030002;
+        public static final int fragment_main=0x7f030001;
+        public static final int navigation_drawer_list_item=0x7f030002;
     }
     public static final class menu {
         public static final int app=0x7f080000;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
-        public static final int action_websearch=0x7f050005;
         public static final int app_name=0x7f050000;
-        public static final int app_not_available=0x7f050006;
         public static final int drawer_close=0x7f050004;
         public static final int drawer_open=0x7f050003;
         public static final int hello_world=0x7f050002;
