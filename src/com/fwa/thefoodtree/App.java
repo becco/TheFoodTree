@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.fwa.thefoodtree.fragments.DailyReportFragment;
 import com.fwa.thefoodtree.fragments.LogIngredientsFragment;
 import com.fwa.thefoodtree.fragments.LogMenuFragment;
 
@@ -119,27 +120,25 @@ public class App extends Activity {
     
     private Fragment chooseFragment(int pos) {
 
-	    Fragment fragment;
+	    Fragment fragment = null;
 	    Bundle args = new Bundle();
 	    args.putInt(LogIngredientsFragment.ARG_MENU_ITEM, pos);
-	    Log.d("debug", Integer.toString(pos)); 
-	    switch(pos) {
+	    //Log.d("debug", Integer.toString(pos)); 
+	    
+	    if(pos == 0) {
 	    	//Log ingredients
-	    	case 0:
-	    		fragment = new LogIngredientsFragment();
-	            args.putInt(LogIngredientsFragment.ARG_MENU_ITEM, pos);
-	        //Log from menu
-	        case 1:
-	    	    fragment = new LogMenuFragment();
-	            args.putInt(LogMenuFragment.ARG_MENU_ITEM, pos);
-	        //Daily report
-	        case 2:
-	    	    fragment = new LogIngredientsFragment();
-	            args.putInt(LogIngredientsFragment.ARG_MENU_ITEM, pos);
-	       default:
-	    	   	fragment = new LogIngredientsFragment();
+	    	fragment = new LogIngredientsFragment();
 	    }
-        fragment.setArguments(args);
+	    else if(pos == 1) {
+	    	//Log from menu
+	    	 fragment = new LogMenuFragment();
+	    }
+	    else if(pos == 2) {
+	    	//Daily report
+	    	fragment = new DailyReportFragment();
+	    }
+	    args.putInt(DailyReportFragment.ARG_MENU_ITEM, pos);
+	    fragment.setArguments(args);
         return fragment;
     }
     
