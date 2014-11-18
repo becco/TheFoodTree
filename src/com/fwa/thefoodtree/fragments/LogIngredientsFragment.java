@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import com.fwa.thefoodtree.R;
 
 public class LogIngredientsFragment extends FTFragment {
-
+	
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {    		
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_log_ingredients, container, false);
         return rootView;
     }

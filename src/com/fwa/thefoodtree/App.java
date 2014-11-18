@@ -2,13 +2,13 @@ package com.fwa.thefoodtree;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentBreadCrumbs;
 import android.app.FragmentManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,7 +21,7 @@ import com.fwa.thefoodtree.fragments.LogMenuFragment;
 
 /* This is our Main Activity, launch point for the app */
 
-public class App extends Activity {
+public class App extends Activity implements FragmentManager.OnBackStackChangedListener {
 	
 	private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -30,6 +30,8 @@ public class App extends Activity {
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
     private String[] mMenuItemTitles;
+    
+    private FragmentBreadCrumbs mFragmentBreadCrumbs;   
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,11 +74,19 @@ public class App extends Activity {
             }
         };
         mDrawerLayout.setDrawerListener(mDrawerToggle);
+        
+        mFragmentBreadCrumbs = (FragmentBreadCrumbs) findViewById(R.id.breadcrumbs);
+        mFragmentBreadCrumbs.setActivity(this);  
 
         if (savedInstanceState == null) {
             selectItem(0);
         }
+//        FragmentManager fragmentManager = getFragmentManager();
+//        fragmentManager.addOnBackStackChangedListener(this);
+              
 	}
+	
+	
 
     /* Called whenever we call invalidateOptionsMenu() */
 //    @Override
@@ -109,22 +119,23 @@ public class App extends Activity {
     	
     	/* What kind of fragment do we want to display? */
     	Fragment fragment = this.chooseFragment(position);
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+    	FragmentManager fragmentManager = getFragmentManager();
+    	fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
         /* update selected item and title, then close the drawer */
+    	String title = mMenuItemTitles[position];
         mDrawerList.setItemChecked(position, true);
-        setTitle(mMenuItemTitles[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
+        this.setTitle(title);
+        /* update the breadcrumbs */
+        this.updateBreadCrumbs(title);
     }
     
     private Fragment chooseFragment(int pos) {
 
 	    Fragment fragment = null;
 	    Bundle args = new Bundle();
-	    args.putInt(LogIngredientsFragment.ARG_MENU_ITEM, pos);
-	    //Log.d("debug", Integer.toString(pos)); 
-	    
+	    args.putInt(LogIngredientsFragment.ARG_MENU_ITEM, pos);	    
 	    if(pos == 0) {
 	    	//Log ingredients
 	    	fragment = new LogIngredientsFragment();
@@ -166,6 +177,16 @@ public class App extends Activity {
         super.onConfigurationChanged(newConfig);
         // Pass any configuration change to the drawer toggles
         mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+	@Override
+	public void onBackStackChanged() {
+		// TODO Auto-generated method stub
+		
+	}
+	void updateBreadCrumbs(String title) {
+        mFragmentBreadCrumbs.setParentTitle(null, null, null);
+        mFragmentBreadCrumbs.setTitle(title, title);
     }
 
 //	@Override
