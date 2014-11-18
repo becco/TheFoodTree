@@ -1,43 +1,4 @@
 <resources>
-
-	<color name="black_overlay">#66000000</color>
-	<color name="LightGrey1">#ededed</color>
-	<color name="LightGrey2">#fefefe</color>
-	<color name="LightGrey3">#f6f6f6</color>
-	<color name="LightGrey4">#eeeeee</color>
-	<color name="LightGrey5">#f1f1f1</color>
-	<color name="MediumGrey1">#b2b2b2</color>
-	<color name="MediumGrey2">#dedede</color>
-	<color name="MediumGrey3">#dddddd</color>
-	<color name="MediumGrey4">#cccccc</color>
-	<color name="MediumGrey5">#999999</color>
-	<color name="MediumGrey6">#666666</color>
-	<color name="MediumGrey7">#777777</color>
-	<color name="MediumGrey8">#878787</color>
-	<color name="DarkGrey1">#333333</color>
-	<color name="DarkGrey2">#525252</color>
-	<color name="DarkGrey3">#343434</color>
-	<color name="LightRed1">#bd0000</color>
-	<color name="TransparentBlack">#66000000</color>
-	<color name="AlmostBlack">#222222</color>
-	<color name="TitleBarShadow">#FFFFFF</color>
-	<color name="LightShadow">#FFFFFF</color>
-	<color name="DarkShadow">#66333333</color>
-	<color name="Green">#a8b400</color>
-	<color name="GreenVomit">#868d18</color>
-	<color name="LightGreen1">#a1ad01</color>
-	<color name="RedHeading">#be0100</color>
-	<color name="White">#ffffffff</color>
-	<color name="ErrorBorderRed">#ba010e</color>
-	<color name="ErrorBgRed">#fff2f2</color>
-	<color name="NBAShadowGreen">#868d18</color>
-	<color name="SuccessBorderGreen">#99cc99</color>
-	<color name="SuccessBgGreen">#d9ffd9</color>
-	<color name="DashboardGraphicGrey">#777777</color>
-	<color name="StrangeBishopPurple">#883874</color>
+	<color name="black">#66000000</color>
 	<color name="ClearColor">#00000000</color>
-	<color name="HalfWhite">#eeffffff</color>
-	<color name="red">#00ffff</color>
-	<color name="green">#ff00ff</color>
-	
 </resources>

@@ -9,7 +9,7 @@
     	android:layout_centerHorizontal="true"
      	android:contentDescription="@string/emptyString" />
 
-    <TextView
+     <TextView
     	android:id="@+id/buttonText"
     	android:layout_width="wrap_content"
     	android:layout_height="wrap_content"
@@ -18,6 +18,7 @@
     	android:clickable="false" 
     	android:duplicateParentState="true" 
     	android:lines="1" 
+    	android:textColor="@color/black" 
     	android:textIsSelectable="false" 
     	android:textSize="12sp" />
 

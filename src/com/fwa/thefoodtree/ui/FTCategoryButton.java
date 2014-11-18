@@ -1,10 +1,8 @@
 package com.fwa.thefoodtree.ui;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
@@ -17,8 +15,6 @@ public class FTCategoryButton extends RelativeLayout
 {
 	private TextView buttonText;
 	private ImageView buttonIcon;
-
-
 
 	public FTCategoryButton(Context context)
 	{

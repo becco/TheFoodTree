@@ -36,45 +36,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int buttonText=0x7f010000;
     }
     public static final class color {
-        public static final int AlmostBlack=0x7f050013;
-        public static final int ClearColor=0x7f050023;
-        public static final int DarkGrey1=0x7f05000e;
-        public static final int DarkGrey2=0x7f05000f;
-        public static final int DarkGrey3=0x7f050010;
-        public static final int DarkShadow=0x7f050016;
-        public static final int DashboardGraphicGrey=0x7f050021;
-        public static final int ErrorBgRed=0x7f05001d;
-        public static final int ErrorBorderRed=0x7f05001c;
-        public static final int Green=0x7f050017;
-        public static final int GreenVomit=0x7f050018;
-        public static final int HalfWhite=0x7f050024;
-        public static final int LightGreen1=0x7f050019;
-        public static final int LightGrey1=0x7f050001;
-        public static final int LightGrey2=0x7f050002;
-        public static final int LightGrey3=0x7f050003;
-        public static final int LightGrey4=0x7f050004;
-        public static final int LightGrey5=0x7f050005;
-        public static final int LightRed1=0x7f050011;
-        public static final int LightShadow=0x7f050015;
-        public static final int MediumGrey1=0x7f050006;
-        public static final int MediumGrey2=0x7f050007;
-        public static final int MediumGrey3=0x7f050008;
-        public static final int MediumGrey4=0x7f050009;
-        public static final int MediumGrey5=0x7f05000a;
-        public static final int MediumGrey6=0x7f05000b;
-        public static final int MediumGrey7=0x7f05000c;
-        public static final int MediumGrey8=0x7f05000d;
-        public static final int NBAShadowGreen=0x7f05001e;
-        public static final int RedHeading=0x7f05001a;
-        public static final int StrangeBishopPurple=0x7f050022;
-        public static final int SuccessBgGreen=0x7f050020;
-        public static final int SuccessBorderGreen=0x7f05001f;
-        public static final int TitleBarShadow=0x7f050014;
-        public static final int TransparentBlack=0x7f050012;
-        public static final int White=0x7f05001b;
-        public static final int black_overlay=0x7f050000;
-        public static final int green=0x7f050026;
-        public static final int red=0x7f050025;
+        public static final int ClearColor=0x7f050001;
+        public static final int black=0x7f050000;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -86,6 +49,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_horizontal_margin=0x7f060000;
         public static final int activity_vertical_margin=0x7f060001;
         public static final int breadcrumb_height=0x7f060002;
+        public static final int title_font_size=0x7f060003;
     }
     public static final class drawable {
         public static final int category_placeholder=0x7f020000;
@@ -171,47 +135,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f090001;
-        public static final int dashboardButton=0x7f090027;
-        public static final int fontStandard=0x7f090002;
-        public static final int fontStandard_Bold=0x7f090007;
-        public static final int fontStandard_Bold_LightGreen1=0x7f090014;
-        public static final int fontStandard_Bold_LightGreen1_s18=0x7f090016;
-        public static final int fontStandard_Bold_LightGreen1_s32=0x7f090015;
-        public static final int fontStandard_Bold_s12=0x7f090008;
-        public static final int fontStandard_Bold_s14=0x7f090009;
-        public static final int fontStandard_Bold_s16=0x7f09000a;
-        public static final int fontStandard_Bold_s18=0x7f090011;
-        public static final int fontStandard_Bold_s18_StrangeBishopPurple=0x7f090012;
-        public static final int fontStandard_Bold_s24=0x7f09000b;
-        public static final int fontStandard_DarkGrey2=0x7f090003;
-        public static final int fontStandard_Italic=0x7f090006;
-        public static final int fontStandard_LightRed1=0x7f090017;
-        public static final int fontStandard_LightRed1_s18=0x7f090018;
-        public static final int fontStandard_LightRed1_s20=0x7f090019;
-        public static final int fontStandard_LightRed1_s22=0x7f09001a;
-        public static final int fontStandard_LightRed1_s24=0x7f09001b;
-        public static final int fontStandard_MediumGrey5=0x7f090004;
-        public static final int fontStandard_MediumGrey6=0x7f090005;
-        public static final int fontStandard_White=0x7f09001c;
-        public static final int fontStandard_White_s12=0x7f09001d;
-        public static final int fontStandard_White_s12_Bold=0x7f090022;
-        public static final int fontStandard_White_s14=0x7f09001e;
-        public static final int fontStandard_White_s14_Bold=0x7f090023;
-        public static final int fontStandard_White_s16=0x7f09001f;
-        public static final int fontStandard_White_s16_Bold=0x7f090024;
-        public static final int fontStandard_White_s18=0x7f090020;
-        public static final int fontStandard_White_s18_Bold=0x7f090025;
-        public static final int fontStandard_White_s24=0x7f090021;
-        public static final int fontStandard_White_s24_Bold=0x7f090026;
-        public static final int fontStandard_s12=0x7f09000c;
-        public static final int fontStandard_s12_MediumGrey6=0x7f090013;
-        public static final int fontStandard_s13=0x7f09000d;
-        public static final int fontStandard_s13_Bold=0x7f09000f;
-        public static final int fontStandard_s16=0x7f09000e;
-        public static final int fontStandard_s18=0x7f090010;
-        public static final int nbaHeaderText=0x7f09002a;
-        public static final int nbaOfferButton=0x7f090028;
-        public static final int nbaOfferText=0x7f090029;
+        public static final int dashboardButton=0x7f090002;
     }
     public static final class styleable {
         /** Attributes that can be used with a FTCategoryButton.
