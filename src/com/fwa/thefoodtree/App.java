@@ -22,7 +22,7 @@ import com.fwa.thefoodtree.fragments.LogMenuFragment;
 
 /* This is our Main Activity, launch point for the app */
 
-public class App extends Activity implements FTFragment.OnHeadlineSelectedListener {
+public class App extends Activity implements FTFragment.OnSwitchFragmentListener {
 	
 	private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -131,6 +131,18 @@ public class App extends Activity implements FTFragment.OnHeadlineSelectedListen
         /* update the breadcrumbs */
         this.updateBreadCrumbs(title);
     }
+    private void selectItem(Fragment fragment, String title) {
+
+    	FragmentManager fragmentManager = getFragmentManager();
+    	fragmentManager.beginTransaction()
+    	.replace(R.id.content_frame, fragment)
+    	.setBreadCrumbTitle(title)
+    	.setBreadCrumbShortTitle(title)
+    	.addToBackStack(null)
+    	.commit();
+
+        this.setTitle(title);
+    }
     
     private Fragment chooseFragment(int pos) {
 
@@ -191,11 +203,10 @@ public class App extends Activity implements FTFragment.OnHeadlineSelectedListen
     }
 
 
-
 	@Override
-	public void onArticleSelected(int position) {
+	public void onFragmentSwitched(Fragment fragment, String title) {
 		// TODO Auto-generated method stub
-		
+		this.selectItem(fragment, title);
 	}
 
 //	@Override

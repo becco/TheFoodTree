@@ -12,9 +12,8 @@ public class FTFragment extends Fragment {
     }
     
     //define some interfaces for communication with the activity
-    // update breadcrumbs etc
-    public interface OnHeadlineSelectedListener {
-        public void onArticleSelected(int position);
+    public interface OnSwitchFragmentListener {
+        public void onFragmentSwitched(Fragment fragment, String title);
     }
     
 }
