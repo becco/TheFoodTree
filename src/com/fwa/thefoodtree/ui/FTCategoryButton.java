@@ -43,30 +43,30 @@ public class FTCategoryButton extends RelativeLayout
 
 
 
-//		TypedArray styledAttributes = context.obtainStyledAttributes(attrs, R.styleable.VFDashboardButton);
-//		final int styledAttributesCount = styledAttributes.getIndexCount();
-//		for (int index = 0; index < styledAttributesCount; ++index)
-//		{
-//			int attribute = styledAttributes.getIndex(index);
-//			switch (attribute)
-//			{
-//				case R.styleable.VFDashboardButton_buttonText:
-//					if (this.buttonText != null) 
-//					{
-//						this.buttonText.setText(styledAttributes.getString(attribute)); 
-//						if (!this.isInEditMode())
-//						{
+		TypedArray styledAttributes = context.obtainStyledAttributes(attrs, R.styleable.FTCategoryButton);
+		final int styledAttributesCount = styledAttributes.getIndexCount();
+		for (int index = 0; index < styledAttributesCount; ++index)
+		{
+			int attribute = styledAttributes.getIndex(index);
+			switch (attribute)
+			{
+				case R.styleable.FTCategoryButton_buttonText:
+					if (this.buttonText != null) 
+					{
+						this.buttonText.setText(styledAttributes.getString(attribute)); 
+						if (!this.isInEditMode())
+						{
 //							Typeface fontVodafoneRegularBold = Typeface.createFromAsset(((Activity)getContext()).getAssets(), "fonts/VodafoneRg/VodafoneRgBd.ttf"); 
 //							this.buttonText.setTypeface(fontVodafoneRegularBold); 
-//						}
-//					}
-//					break;
-//				case R.styleable.VFDashboardButton_buttonIcon:
-//					if (this.buttonIcon != null) { this.buttonIcon.setImageDrawable(styledAttributes.getDrawable(attribute)); }
-//					break;
-//			}
-//		}
-//		styledAttributes.recycle();
+						}
+					}
+					break;
+				case R.styleable.FTCategoryButton_buttonIcon:
+					if (this.buttonIcon != null) { this.buttonIcon.setImageDrawable(styledAttributes.getDrawable(attribute)); }
+					break;
+			}
+		}
+		styledAttributes.recycle();
 
 
 

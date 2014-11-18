@@ -171,6 +171,47 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f090001;
+        public static final int dashboardButton=0x7f090027;
+        public static final int fontStandard=0x7f090002;
+        public static final int fontStandard_Bold=0x7f090007;
+        public static final int fontStandard_Bold_LightGreen1=0x7f090014;
+        public static final int fontStandard_Bold_LightGreen1_s18=0x7f090016;
+        public static final int fontStandard_Bold_LightGreen1_s32=0x7f090015;
+        public static final int fontStandard_Bold_s12=0x7f090008;
+        public static final int fontStandard_Bold_s14=0x7f090009;
+        public static final int fontStandard_Bold_s16=0x7f09000a;
+        public static final int fontStandard_Bold_s18=0x7f090011;
+        public static final int fontStandard_Bold_s18_StrangeBishopPurple=0x7f090012;
+        public static final int fontStandard_Bold_s24=0x7f09000b;
+        public static final int fontStandard_DarkGrey2=0x7f090003;
+        public static final int fontStandard_Italic=0x7f090006;
+        public static final int fontStandard_LightRed1=0x7f090017;
+        public static final int fontStandard_LightRed1_s18=0x7f090018;
+        public static final int fontStandard_LightRed1_s20=0x7f090019;
+        public static final int fontStandard_LightRed1_s22=0x7f09001a;
+        public static final int fontStandard_LightRed1_s24=0x7f09001b;
+        public static final int fontStandard_MediumGrey5=0x7f090004;
+        public static final int fontStandard_MediumGrey6=0x7f090005;
+        public static final int fontStandard_White=0x7f09001c;
+        public static final int fontStandard_White_s12=0x7f09001d;
+        public static final int fontStandard_White_s12_Bold=0x7f090022;
+        public static final int fontStandard_White_s14=0x7f09001e;
+        public static final int fontStandard_White_s14_Bold=0x7f090023;
+        public static final int fontStandard_White_s16=0x7f09001f;
+        public static final int fontStandard_White_s16_Bold=0x7f090024;
+        public static final int fontStandard_White_s18=0x7f090020;
+        public static final int fontStandard_White_s18_Bold=0x7f090025;
+        public static final int fontStandard_White_s24=0x7f090021;
+        public static final int fontStandard_White_s24_Bold=0x7f090026;
+        public static final int fontStandard_s12=0x7f09000c;
+        public static final int fontStandard_s12_MediumGrey6=0x7f090013;
+        public static final int fontStandard_s13=0x7f09000d;
+        public static final int fontStandard_s13_Bold=0x7f09000f;
+        public static final int fontStandard_s16=0x7f09000e;
+        public static final int fontStandard_s18=0x7f090010;
+        public static final int nbaHeaderText=0x7f09002a;
+        public static final int nbaOfferButton=0x7f090028;
+        public static final int nbaOfferText=0x7f090029;
     }
     public static final class styleable {
         /** Attributes that can be used with a FTCategoryButton.
