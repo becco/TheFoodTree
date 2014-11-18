@@ -11,7 +11,7 @@ public class FTFragment extends Fragment {
         // Empty constructor required for fragment subclasses
     }
     
-    //define some interfaces for communication with the activity
+    /* Interface for swapping in and out fragments */
     public interface OnSwitchFragmentListener {
         public void onFragmentSwitched(Fragment fragment, String title);
     }

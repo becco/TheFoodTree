@@ -58,10 +58,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ic_launcher=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f0b000b;
+        public static final int action_settings=0x7f0b000c;
         public static final int breadcrumbs=0x7f0b0001;
-        public static final int buttonIcon=0x7f0b0009;
-        public static final int buttonText=0x7f0b000a;
+        public static final int buttonIcon=0x7f0b000a;
+        public static final int buttonText=0x7f0b000b;
+        public static final int categoriesTitle=0x7f0b0008;
         public static final int categoryButtons=0x7f0b0004;
         public static final int categoryDairy=0x7f0b0006;
         public static final int categoryFruitAndVeg=0x7f0b0005;
@@ -69,17 +70,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int content_frame=0x7f0b0002;
         public static final int drawer_layout=0x7f0b0000;
         public static final int left_drawer=0x7f0b0003;
-        public static final int textView1=0x7f0b0008;
+        public static final int textView1=0x7f0b0009;
     }
     public static final class layout {
         public static final int activity_app=0x7f030000;
         public static final int component_category_buttons=0x7f030001;
-        public static final int fragment_daily_report=0x7f030002;
-        public static final int fragment_log_ingredients=0x7f030003;
-        public static final int fragment_log_menu=0x7f030004;
-        public static final int fragment_main=0x7f030005;
-        public static final int navigation_drawer_list_item=0x7f030006;
-        public static final int ui_category_button=0x7f030007;
+        public static final int fragment_categories=0x7f030002;
+        public static final int fragment_daily_report=0x7f030003;
+        public static final int fragment_log_ingredients=0x7f030004;
+        public static final int fragment_log_menu=0x7f030005;
+        public static final int fragment_main=0x7f030006;
+        public static final int navigation_drawer_list_item=0x7f030007;
+        public static final int ui_category_button=0x7f030008;
     }
     public static final class menu {
         public static final int app=0x7f0a0000;
