@@ -8,12 +8,73 @@
 package com.fwa.thefoodtree;
 
 public final class R {
+    public static final class anim {
+        public static final int fade_in=0x7f040000;
+        public static final int fade_out=0x7f040001;
+        public static final int pull_down=0x7f040002;
+        public static final int pull_up=0x7f040003;
+        public static final int push_left_in=0x7f040004;
+        public static final int push_left_out=0x7f040005;
+        public static final int push_right_in=0x7f040006;
+        public static final int push_right_out=0x7f040007;
+    }
     public static final class array {
-        /**   Navigation Strings 
+        /**   End Titles 
+  Navigation Strings 
          */
-        public static final int menu_item_array=0x7f060000;
+        public static final int menu_item_array=0x7f080000;
     }
     public static final class attr {
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int buttonIcon=0x7f010001;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+         */
+        public static final int buttonText=0x7f010000;
+    }
+    public static final class color {
+        public static final int AlmostBlack=0x7f050013;
+        public static final int ClearColor=0x7f050023;
+        public static final int DarkGrey1=0x7f05000e;
+        public static final int DarkGrey2=0x7f05000f;
+        public static final int DarkGrey3=0x7f050010;
+        public static final int DarkShadow=0x7f050016;
+        public static final int DashboardGraphicGrey=0x7f050021;
+        public static final int ErrorBgRed=0x7f05001d;
+        public static final int ErrorBorderRed=0x7f05001c;
+        public static final int Green=0x7f050017;
+        public static final int GreenVomit=0x7f050018;
+        public static final int HalfWhite=0x7f050024;
+        public static final int LightGreen1=0x7f050019;
+        public static final int LightGrey1=0x7f050001;
+        public static final int LightGrey2=0x7f050002;
+        public static final int LightGrey3=0x7f050003;
+        public static final int LightGrey4=0x7f050004;
+        public static final int LightGrey5=0x7f050005;
+        public static final int LightRed1=0x7f050011;
+        public static final int LightShadow=0x7f050015;
+        public static final int MediumGrey1=0x7f050006;
+        public static final int MediumGrey2=0x7f050007;
+        public static final int MediumGrey3=0x7f050008;
+        public static final int MediumGrey4=0x7f050009;
+        public static final int MediumGrey5=0x7f05000a;
+        public static final int MediumGrey6=0x7f05000b;
+        public static final int MediumGrey7=0x7f05000c;
+        public static final int MediumGrey8=0x7f05000d;
+        public static final int NBAShadowGreen=0x7f05001e;
+        public static final int RedHeading=0x7f05001a;
+        public static final int StrangeBishopPurple=0x7f050022;
+        public static final int SuccessBgGreen=0x7f050020;
+        public static final int SuccessBorderGreen=0x7f05001f;
+        public static final int TitleBarShadow=0x7f050014;
+        public static final int TransparentBlack=0x7f050012;
+        public static final int White=0x7f05001b;
+        public static final int black_overlay=0x7f050000;
+        public static final int green=0x7f050026;
+        public static final int red=0x7f050025;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -22,42 +83,66 @@ public final class R {
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
          */
-        public static final int activity_horizontal_margin=0x7f040000;
-        public static final int activity_vertical_margin=0x7f040001;
-        public static final int breadcrumb_height=0x7f040002;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
+        public static final int breadcrumb_height=0x7f060002;
     }
     public static final class drawable {
-        public static final int drawer_shadow=0x7f020000;
-        public static final int ic_drawer=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
+        public static final int category_placeholder=0x7f020000;
+        public static final int drawer_shadow=0x7f020001;
+        public static final int ic_drawer=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f090004;
-        public static final int breadcrumbs=0x7f090001;
-        public static final int content_frame=0x7f090002;
-        public static final int drawer_layout=0x7f090000;
-        public static final int left_drawer=0x7f090003;
+        public static final int action_settings=0x7f0b000b;
+        public static final int breadcrumbs=0x7f0b0001;
+        public static final int buttonIcon=0x7f0b0009;
+        public static final int buttonText=0x7f0b000a;
+        public static final int categoryButtons=0x7f0b0004;
+        public static final int categoryDairy=0x7f0b0006;
+        public static final int categoryFruitAndVeg=0x7f0b0005;
+        public static final int categoryMeat=0x7f0b0007;
+        public static final int content_frame=0x7f0b0002;
+        public static final int drawer_layout=0x7f0b0000;
+        public static final int left_drawer=0x7f0b0003;
+        public static final int textView1=0x7f0b0008;
     }
     public static final class layout {
         public static final int activity_app=0x7f030000;
-        public static final int fragment_daily_report=0x7f030001;
-        public static final int fragment_log_ingredients=0x7f030002;
-        public static final int fragment_log_menu=0x7f030003;
-        public static final int fragment_main=0x7f030004;
-        public static final int navigation_drawer_list_item=0x7f030005;
+        public static final int component_category_buttons=0x7f030001;
+        public static final int fragment_daily_report=0x7f030002;
+        public static final int fragment_log_ingredients=0x7f030003;
+        public static final int fragment_log_menu=0x7f030004;
+        public static final int fragment_main=0x7f030005;
+        public static final int navigation_drawer_list_item=0x7f030006;
+        public static final int ui_category_button=0x7f030007;
     }
     public static final class menu {
-        public static final int app=0x7f080000;
+        public static final int app=0x7f0a0000;
     }
     public static final class string {
-        public static final int action_settings=0x7f050001;
-        public static final int app_name=0x7f050000;
-        public static final int daily_report_title=0x7f050005;
-        public static final int drawer_close=0x7f050007;
-        public static final int drawer_open=0x7f050006;
-        public static final int hello_world=0x7f050002;
-        public static final int log_ingredients_title=0x7f050003;
-        public static final int log_menu_item_title=0x7f050004;
+        public static final int action_settings=0x7f070001;
+        public static final int app_name=0x7f070000;
+        public static final int beverages_title=0x7f07000d;
+        public static final int bread_title=0x7f07000b;
+        public static final int daily_report_title=0x7f070006;
+        public static final int dairy_title=0x7f070008;
+        public static final int drawer_close=0x7f07000f;
+        public static final int drawer_open=0x7f07000e;
+        /**  Some helpers 
+         */
+        public static final int emptyString=0x7f070003;
+        public static final int fish_title=0x7f07000a;
+        /**  Food Categories 
+         */
+        public static final int fruit_and_veg_title=0x7f070007;
+        public static final int hello_world=0x7f070002;
+        public static final int herbs_and_condiments_title=0x7f07000c;
+        /**  Titles 
+         */
+        public static final int log_ingredients_title=0x7f070004;
+        public static final int log_menu_item_title=0x7f070005;
+        public static final int meat_title=0x7f070009;
     }
     public static final class style {
         /** 
@@ -81,10 +166,48 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static final int AppBaseTheme=0x7f090000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static final int AppTheme=0x7f090001;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a FTCategoryButton.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #FTCategoryButton_buttonIcon com.fwa.thefoodtree:buttonIcon}</code></td><td></td></tr>
+           <tr><td><code>{@link #FTCategoryButton_buttonText com.fwa.thefoodtree:buttonText}</code></td><td></td></tr>
+           </table>
+           @see #FTCategoryButton_buttonIcon
+           @see #FTCategoryButton_buttonText
+         */
+        public static final int[] FTCategoryButton = {
+            0x7f010000, 0x7f010001
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.fwa.thefoodtree.R.attr#buttonIcon}
+          attribute's value can be found in the {@link #FTCategoryButton} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.fwa.thefoodtree:buttonIcon
+        */
+        public static final int FTCategoryButton_buttonIcon = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.fwa.thefoodtree.R.attr#buttonText}
+          attribute's value can be found in the {@link #FTCategoryButton} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+          @attr name com.fwa.thefoodtree:buttonText
+        */
+        public static final int FTCategoryButton_buttonText = 0;
+    };
 }

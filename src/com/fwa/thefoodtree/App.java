@@ -15,13 +15,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.fwa.thefoodtree.fragments.FTFragment;
 import com.fwa.thefoodtree.fragments.DailyReportFragment;
 import com.fwa.thefoodtree.fragments.LogIngredientsFragment;
 import com.fwa.thefoodtree.fragments.LogMenuFragment;
 
 /* This is our Main Activity, launch point for the app */
 
-public class App extends Activity implements FragmentManager.OnBackStackChangedListener {
+public class App extends Activity implements FTFragment.OnHeadlineSelectedListener {
 	
 	private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -179,15 +180,23 @@ public class App extends Activity implements FragmentManager.OnBackStackChangedL
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
-	@Override
-	public void onBackStackChanged() {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void onBackStackChanged() {
+//		// TODO Auto-generated method stub
+//		
+//	}
 	void updateBreadCrumbs(String title) {
         mFragmentBreadCrumbs.setParentTitle(null, null, null);
         mFragmentBreadCrumbs.setTitle(title, title);
     }
+
+
+
+	@Override
+	public void onArticleSelected(int position) {
+		// TODO Auto-generated method stub
+		
+	}
 
 //	@Override
 //	public boolean onCreateOptionsMenu(Menu menu) {

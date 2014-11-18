@@ -9,9 +9,11 @@
     tools:context=".App" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/log_ingredients_title" />
-
+    
+    <include layout="@layout/component_category_buttons" />
 
 </RelativeLayout>

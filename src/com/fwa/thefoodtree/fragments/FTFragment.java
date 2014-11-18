@@ -11,4 +11,10 @@ public class FTFragment extends Fragment {
         // Empty constructor required for fragment subclasses
     }
     
+    //define some interfaces for communication with the activity
+    // update breadcrumbs etc
+    public interface OnHeadlineSelectedListener {
+        public void onArticleSelected(int position);
+    }
+    
 }
