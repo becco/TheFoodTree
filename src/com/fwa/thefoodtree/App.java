@@ -1,6 +1,5 @@
 package com.fwa.thefoodtree;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentBreadCrumbs;
 import android.app.FragmentManager;
@@ -15,21 +14,21 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.fwa.thefoodtree.fragments.FTFragment;
+import com.fwa.thefoodtree.activity.common.FTActivity;
 import com.fwa.thefoodtree.fragments.DailyReportFragment;
 import com.fwa.thefoodtree.fragments.LogIngredientsFragment;
 import com.fwa.thefoodtree.fragments.LogMenuFragment;
 
 /* This is our Main Activity, launch point for the app */
 
-public class App extends Activity implements FTFragment.OnSwitchFragmentListener {
+public class App extends FTActivity {
 	
 	private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
 
-    private CharSequence mDrawerTitle;
-    private CharSequence mTitle;
+    private String mDrawerTitle;
+    private String mTitle;
     private String[] mMenuItemTitles;
     
     private FragmentBreadCrumbs mFragmentBreadCrumbs;   
@@ -39,7 +38,7 @@ public class App extends Activity implements FTFragment.OnSwitchFragmentListener
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_app);
 		
-		mTitle = mDrawerTitle = getTitle();
+		mTitle = mDrawerTitle = getTitle().toString();
         mMenuItemTitles = getResources().getStringArray(R.array.menu_item_array);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
@@ -65,12 +64,12 @@ public class App extends Activity implements FTFragment.OnSwitchFragmentListener
                 R.string.drawer_close  /* "close drawer" description for accessibility */
                 ) {
             public void onDrawerClosed(View view) {
-                getActionBar().setTitle(mTitle);
+            	setTitle(mTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
             public void onDrawerOpened(View drawerView) {
-                getActionBar().setTitle(mDrawerTitle);
+                setTitle(mDrawerTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
@@ -82,21 +81,13 @@ public class App extends Activity implements FTFragment.OnSwitchFragmentListener
         if (savedInstanceState == null) {
             selectItem(0);
         }
-//        FragmentManager fragmentManager = getFragmentManager();
-//        fragmentManager.addOnBackStackChangedListener(this);
+        
               
 	}
 	
-	
-
-    /* Called whenever we call invalidateOptionsMenu() */
-//    @Override
-//    public boolean onPrepareOptionsMenu(Menu menu) {
-//        // If the nav drawer is open, hide action items related to the content view
-//        boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
-//        //menu.findItem(R.id.action_websearch).setVisible(!drawerOpen);
-//        return super.onPrepareOptionsMenu(menu);
-//    }
+	public void setTitle(String title) {
+		this.setActionBarTitle(title);
+	}
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -112,6 +103,7 @@ public class App extends Activity implements FTFragment.OnSwitchFragmentListener
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        	clearBackStack();
             selectItem(position);
         }
     }
@@ -122,27 +114,17 @@ public class App extends Activity implements FTFragment.OnSwitchFragmentListener
     	Fragment fragment = this.chooseFragment(position);
     	FragmentManager fragmentManager = getFragmentManager();
     	fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-
+    	
         /* update selected item and title, then close the drawer */
     	String title = mMenuItemTitles[position];
         mDrawerList.setItemChecked(position, true);
         mDrawerLayout.closeDrawer(mDrawerList);
         this.setTitle(title);
+        
         /* update the breadcrumbs */
-        this.updateBreadCrumbs(title);
+        this.updateBreadCrumbs(mFragmentBreadCrumbs, title);
     }
-    private void selectItem(Fragment fragment, String title) {
-
-    	FragmentManager fragmentManager = getFragmentManager();
-    	fragmentManager.beginTransaction()
-    	.replace(R.id.content_frame, fragment)
-    	.setBreadCrumbTitle(title)
-    	.setBreadCrumbShortTitle(title)
-    	.addToBackStack(null)
-    	.commit();
-
-        this.setTitle(title);
-    }
+   
     
     private Fragment chooseFragment(int pos) {
 
@@ -165,18 +147,6 @@ public class App extends Activity implements FTFragment.OnSwitchFragmentListener
 	    fragment.setArguments(args);
         return fragment;
     }
-    
-    /* Set the activity title */
-    @Override
-    public void setTitle(CharSequence title) {
-        mTitle = title;
-        getActionBar().setTitle(mTitle);
-    }
-
-    /**
-     * When using the ActionBarDrawerToggle, you must call it during
-     * onPostCreate() and onConfigurationChanged()...
-     */
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -191,29 +161,5 @@ public class App extends Activity implements FTFragment.OnSwitchFragmentListener
         // Pass any configuration change to the drawer toggles
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
-
-//	@Override
-//	public void onBackStackChanged() {
-//		// TODO Auto-generated method stub
-//		
-//	}
-	void updateBreadCrumbs(String title) {
-        mFragmentBreadCrumbs.setParentTitle(null, null, null);
-        mFragmentBreadCrumbs.setTitle(title, title);
-    }
-
-
-	@Override
-	public void onFragmentSwitched(Fragment fragment, String title) {
-		// TODO Auto-generated method stub
-		this.selectItem(fragment, title);
-	}
-
-//	@Override
-//	public boolean onCreateOptionsMenu(Menu menu) {
-//		// Inflate the menu; this adds items to the action bar if it is present.
-//		//getMenuInflater().inflate(R.menu.app, menu);
-//		return true;
-//	}
 
 }

@@ -14,7 +14,8 @@ import com.fwa.thefoodtree.ui.FTCategoryButton;
 public class LogIngredientsFragment extends FTFragment {
 	
 	OnSwitchFragmentListener mSwitchFragmentListener;
-	TextView mCategoriesTitle;
+	OnSetCategoryTitleListener mSetCategoryTitleListener;
+	//TextView mCategoriesTitle;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class LogIngredientsFragment extends FTFragment {
 	/* Setup the category buttons */
 	public void setupButtons(View rootView) {
 		
-		mCategoriesTitle = (TextView) rootView.findViewById(R.id.categoriesTitle);
+		//mCategoriesTitle = (TextView) rootView.findViewById(R.id.categoriesTitle);
 		
 		FTCategoryButton categoryFruitAndVeg = (FTCategoryButton) rootView.findViewById(R.id.categoryFruitAndVeg);
 		if (categoryFruitAndVeg != null) {
@@ -34,37 +35,36 @@ public class LogIngredientsFragment extends FTFragment {
 				@Override
 				public void onClick(View v) {
 					Fragment fragment = new CategoriesFragment();
-				    //Bundle args = new Bundle();
-				    //args.putInt(LogIngredientsFragment.ARG_MENU_ITEM, pos);	    
-				    //args.putInt(DailyReportFragment.ARG_MENU_ITEM, pos);
-				    //fragment.setArguments(args);
-					mSwitchFragmentListener.onFragmentSwitched(fragment, "Log fruit or veg");
-					mCategoriesTitle.setText("Log fruit or veg");
+				    Bundle args = new Bundle();
+				    args.putString(CategoriesFragment.ARG_CATEGORY_ITEM, "Log fruit or veg");	    
+				    fragment.setArguments(args);
+					mSwitchFragmentListener.onFragmentSwitched(fragment);
+					//mSetCategoryTitleListener.oncategoryTitleSet("Log fruit or veg");
 				}
 			});
 		}
-		FTCategoryButton categoryDairy = (FTCategoryButton) rootView.findViewById(R.id.categoryDairy);
-		if (categoryDairy != null) {
-			categoryDairy.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					Fragment fragment = new CategoriesFragment();
-					mSwitchFragmentListener.onFragmentSwitched(fragment, "Log dairy");
-					mCategoriesTitle.setText("Log dairy");
-				}
-			});
-		}
-		FTCategoryButton categoryMeat = (FTCategoryButton) rootView.findViewById(R.id.categoryMeat);
-		if (categoryMeat != null) {
-			categoryMeat.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					Fragment fragment = new CategoriesFragment();
-					mSwitchFragmentListener.onFragmentSwitched(fragment, "Log meat");
-					mCategoriesTitle.setText("Log meat");
-				}
-			});
-		}
+//		FTCategoryButton categoryDairy = (FTCategoryButton) rootView.findViewById(R.id.categoryDairy);
+//		if (categoryDairy != null) {
+//			categoryDairy.setOnClickListener(new View.OnClickListener() {
+//				@Override
+//				public void onClick(View v) {
+//					Fragment fragment = new CategoriesFragment();
+//					mSwitchFragmentListener.onFragmentSwitched(fragment, "Log dairy");
+//					//mSetCategoryTitleListener.oncategoryTitleSet("Log dairy");
+//				}
+//			});
+//		}
+//		FTCategoryButton categoryMeat = (FTCategoryButton) rootView.findViewById(R.id.categoryMeat);
+//		if (categoryMeat != null) {
+//			categoryMeat.setOnClickListener(new View.OnClickListener() {
+//				@Override
+//				public void onClick(View v) {
+//					Fragment fragment = new CategoriesFragment();
+//					mSwitchFragmentListener.onFragmentSwitched(fragment, "Log meat");
+//					//mSetCategoryTitleListener.oncategoryTitleSet("Log meat");
+//				}
+//			});
+//		}
 		
 	}
 	
@@ -75,6 +75,11 @@ public class LogIngredientsFragment extends FTFragment {
             mSwitchFragmentListener = (OnSwitchFragmentListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement OnSwitchFragmentListener");
+        }
+        try {
+        	mSetCategoryTitleListener = (OnSetCategoryTitleListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement OnSetCategoryTitleListener");
         }
     }
 }
