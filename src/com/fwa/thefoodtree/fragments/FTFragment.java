@@ -1,6 +1,7 @@
 package com.fwa.thefoodtree.fragments;
 
 import android.app.Fragment;
+import android.os.Bundle;
 
 public class FTFragment extends Fragment {
 	
@@ -20,6 +21,21 @@ public class FTFragment extends Fragment {
     /* Interface for swapping in and out fragments */
     public interface OnSetCategoryTitleListener {
         public void oncategoryTitleSet(String title);
+    }
+    
+    /* Set a string bundle argument */
+    public void setStringArgument(Fragment fragment, String key, String value) {
+    	Bundle args = new Bundle();
+	    args.putString(key, value);	    
+	    fragment.setArguments(args);
+    }
+    /* Set the title of the fragment */
+    public void setTitle(Fragment fragment, String value) {
+    	setStringArgument(fragment, ARG_CATEGORY_ITEM, value);
+    }
+    /* Get the title of the fragment */
+    public String getTitle() {
+    	return this.getArguments().getString(ARG_CATEGORY_ITEM);
     }
     
 }

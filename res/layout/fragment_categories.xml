@@ -9,8 +9,11 @@
     tools:context=".App" >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/categoriesTitle"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/categoriesTitle" />
+        android:gravity="center"
+        android:text="@string/log_ingredients_title"
+        android:textSize="@dimen/title_font_size" />
 
 </RelativeLayout>

@@ -14,8 +14,6 @@ import com.fwa.thefoodtree.ui.FTCategoryButton;
 public class LogIngredientsFragment extends FTFragment {
 	
 	OnSwitchFragmentListener mSwitchFragmentListener;
-	OnSetCategoryTitleListener mSetCategoryTitleListener;
-	//TextView mCategoriesTitle;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -27,44 +25,41 @@ public class LogIngredientsFragment extends FTFragment {
 	/* Setup the category buttons */
 	public void setupButtons(View rootView) {
 		
-		//mCategoriesTitle = (TextView) rootView.findViewById(R.id.categoriesTitle);
-		
 		FTCategoryButton categoryFruitAndVeg = (FTCategoryButton) rootView.findViewById(R.id.categoryFruitAndVeg);
 		if (categoryFruitAndVeg != null) {
 			categoryFruitAndVeg.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
 					Fragment fragment = new CategoriesFragment();
-				    Bundle args = new Bundle();
-				    args.putString(CategoriesFragment.ARG_CATEGORY_ITEM, "Log fruit or veg");	    
-				    fragment.setArguments(args);
+					//set the title for the fragment
+					setTitle(fragment, "Log fruit or veg");
+					// trigger the fragment switch
 					mSwitchFragmentListener.onFragmentSwitched(fragment);
-					//mSetCategoryTitleListener.oncategoryTitleSet("Log fruit or veg");
 				}
 			});
 		}
-//		FTCategoryButton categoryDairy = (FTCategoryButton) rootView.findViewById(R.id.categoryDairy);
-//		if (categoryDairy != null) {
-//			categoryDairy.setOnClickListener(new View.OnClickListener() {
-//				@Override
-//				public void onClick(View v) {
-//					Fragment fragment = new CategoriesFragment();
-//					mSwitchFragmentListener.onFragmentSwitched(fragment, "Log dairy");
-//					//mSetCategoryTitleListener.oncategoryTitleSet("Log dairy");
-//				}
-//			});
-//		}
-//		FTCategoryButton categoryMeat = (FTCategoryButton) rootView.findViewById(R.id.categoryMeat);
-//		if (categoryMeat != null) {
-//			categoryMeat.setOnClickListener(new View.OnClickListener() {
-//				@Override
-//				public void onClick(View v) {
-//					Fragment fragment = new CategoriesFragment();
-//					mSwitchFragmentListener.onFragmentSwitched(fragment, "Log meat");
-//					//mSetCategoryTitleListener.oncategoryTitleSet("Log meat");
-//				}
-//			});
-//		}
+		FTCategoryButton categoryDairy = (FTCategoryButton) rootView.findViewById(R.id.categoryDairy);
+		if (categoryDairy != null) {
+			categoryDairy.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Fragment fragment = new CategoriesFragment();
+					setTitle(fragment, "Log dairy");
+					mSwitchFragmentListener.onFragmentSwitched(fragment);
+				}
+			});
+		}
+		FTCategoryButton categoryMeat = (FTCategoryButton) rootView.findViewById(R.id.categoryMeat);
+		if (categoryMeat != null) {
+			categoryMeat.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Fragment fragment = new CategoriesFragment();
+					setTitle(fragment, "Log meat");
+					mSwitchFragmentListener.onFragmentSwitched(fragment);
+				}
+			});
+		}
 		
 	}
 	
@@ -75,11 +70,6 @@ public class LogIngredientsFragment extends FTFragment {
             mSwitchFragmentListener = (OnSwitchFragmentListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString() + " must implement OnSwitchFragmentListener");
-        }
-        try {
-        	mSetCategoryTitleListener = (OnSetCategoryTitleListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement OnSetCategoryTitleListener");
         }
     }
 }
