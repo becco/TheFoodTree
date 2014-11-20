@@ -31,7 +31,7 @@ public class FTActivity extends Activity implements
 	@Override
 	public void onFragmentSwitched(Fragment fragment) {
 		Bundle args = fragment.getArguments();
-		String title = args.getString(FTFragment.ARG_CATEGORY_ITEM);
+		String title = "Log fruit or veg";//args.getString(FTFragment.ARG_CATEGORY_ITEM);
 		FragmentManager fragmentManager = getFragmentManager();
 		fragmentManager.beginTransaction()
 				.replace(R.id.content_frame, fragment)
