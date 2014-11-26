@@ -35,7 +35,14 @@
     <string name="drawer_close">Close navigation drawer</string>
     <!--  End Navigation Strings -->
 
-    
-    
+    <!--  Alphabet list view -->
+    <string name="a_b_c">ABC</string>
+    <string name="d_e_f">DEF</string>
+    <string name="g_h_i">GHI</string>
+    <string name="j_k_l">JKL</string>
+    <string name="m_n_o">MNO</string>
+    <string name="p_q_r_s">PQRS</string>
+    <string name="t_u_v">TUV</string>
+    <string name="w_x_y_z">WXYZ</string>
 </resources>
  

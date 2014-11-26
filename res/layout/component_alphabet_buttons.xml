@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:foodtree="http://schemas.android.com/apk/res/com.fwa.thefoodtree"
+	android:id="@+id/categoryButtons"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:background="@color/ClearColor"
+	android:paddingTop="25dp" >
+
+    <LinearLayout
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_marginBottom="16dp"
+        	android:background="@color/ClearColor"
+        	android:baselineAligned="false" >
+
+            <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="0.125"
+            	android:gravity="center" >
+
+					<com.fwa.thefoodtree.ui.FTAlphabetButton
+						android:id="@+id/abc"
+						android:layout_width="95dp"
+						android:layout_height="40dp"
+						foodtree:alphabetButtonText="@string/a_b_c" />
+
+				</RelativeLayout>
+
+            <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="0.125"
+            	android:gravity="center" >
+
+					<com.fwa.thefoodtree.ui.FTAlphabetButton
+						android:id="@+id/def"
+						android:layout_width="95dp"
+						android:layout_height="40dp"
+						foodtree:alphabetButtonText="@string/d_e_f" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="match_parent"
+            	android:layout_weight="0.125"
+            	android:gravity="center" >
+
+				<com.fwa.thefoodtree.ui.FTAlphabetButton
+						android:id="@+id/ghi"
+						android:layout_width="95dp"
+						android:layout_height="40dp"
+						foodtree:alphabetButtonText="@string/g_h_i" />
+
+            </RelativeLayout>
+            
+            <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="match_parent"
+            	android:layout_weight="0.125"
+            	android:gravity="center" >
+
+				<com.fwa.thefoodtree.ui.FTAlphabetButton
+						android:id="@+id/jkl"
+						android:layout_width="95dp"
+						android:layout_height="40dp"
+						foodtree:alphabetButtonText="@string/j_k_l" />
+
+            </RelativeLayout>
+            
+            <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="match_parent"
+            	android:layout_weight="0.125"
+            	android:gravity="center" >
+
+				<com.fwa.thefoodtree.ui.FTAlphabetButton
+						android:id="@+id/mno"
+						android:layout_width="95dp"
+						android:layout_height="40dp"
+						foodtree:alphabetButtonText="@string/m_n_o" />
+
+            </RelativeLayout>
+            
+            <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="match_parent"
+            	android:layout_weight="0.125"
+            	android:gravity="center" >
+
+				<com.fwa.thefoodtree.ui.FTAlphabetButton
+						android:id="@+id/pqrs"
+						android:layout_width="95dp"
+						android:layout_height="40dp"
+						foodtree:alphabetButtonText="@string/p_q_r_s" />
+
+            </RelativeLayout>
+            
+            <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="match_parent"
+            	android:layout_weight="0.125"
+            	android:gravity="center" >
+
+				<com.fwa.thefoodtree.ui.FTAlphabetButton
+						android:id="@+id/tuv"
+						android:layout_width="95dp"
+						android:layout_height="40dp"
+						foodtree:alphabetButtonText="@string/t_u_v" />
+
+            </RelativeLayout>
+            
+            <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="match_parent"
+            	android:layout_weight="0.125"
+            	android:gravity="center" >
+
+				<com.fwa.thefoodtree.ui.FTAlphabetButton
+						android:id="@+id/wxyz"
+						android:layout_width="95dp"
+						android:layout_height="40dp"
+						foodtree:alphabetButtonText="@string/w_x_y_z" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+</RelativeLayout>

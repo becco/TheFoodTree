@@ -16,36 +16,68 @@ import android.widget.TextView;
 import com.fwa.thefoodtree.R;
 import com.fwa.thefoodtree.db.Ingredient;
 import com.fwa.thefoodtree.db.IngredientsDataSource;
+import com.fwa.thefoodtree.ui.FTAlphabetButton;
 
-public class CategoriesFragment extends FTFragment {
+public class CategoriesFragment extends FTFragment implements View.OnClickListener {
 
 	private IngredientsDataSource mDataSource;
+	private View mRootView;
+	private ListView mListView;
+	
+	public static final String QUERY_ABC = " AND (name LIKE 'A%' OR name LIKE 'B%' OR name LIKE 'C%')";
+	public static final String QUERY_DEF = " AND (name LIKE 'D%' OR name LIKE 'E%' OR name LIKE 'F%')";
+	public static final String QUERY_GHI = " AND (name LIKE 'G%' OR name LIKE 'H%' OR name LIKE 'I%')";
+	public static final String QUERY_JKL = " AND (name LIKE 'J%' OR name LIKE 'K%' OR name LIKE 'L%')";
+	public static final String QUERY_MNO = " AND (name LIKE 'M%' OR name LIKE 'N%' OR name LIKE 'O%')";
+	public static final String QUERY_PQRS = " AND (name LIKE 'P%' OR name LIKE 'Q%' OR name LIKE 'R%' OR name LIKE 'S%')";
+	public static final String QUERY_TUV = " AND (name LIKE 'T%' OR name LIKE 'U%' OR name LIKE 'V%')";
+	public static final String QUERY_WXYZ = " AND (name LIKE 'W%' OR name LIKE 'X%' OR name LIKE 'Y%' OR name LIKE 'Z%')";
 	
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {    		
-        View rootView = inflater.inflate(R.layout.fragment_categories, container, false);
+    	mRootView = inflater.inflate(R.layout.fragment_categories, container, false);
         
-        this.setMainTitle(rootView);
-        this.initList(rootView);
-        return rootView;
+        this.setMainTitle();
+        this.initList();
+        this.setupButtons();
+        return mRootView;
     }
     
-    public void setMainTitle(View rootView) {
-    	TextView categoriesTitle = (TextView) rootView.findViewById(R.id.categoriesTitle);
+    public void setMainTitle() {
+    	TextView categoriesTitle = (TextView) mRootView.findViewById(R.id.categoriesTitle);
     	categoriesTitle.setText(this.getCategoryTitle());
     }
    
-   
-    public void initList(View rootView) {
+   public void setupButtons() {
+	   FTAlphabetButton abc = (FTAlphabetButton) mRootView.findViewById(R.id.abc);
+	   FTAlphabetButton def = (FTAlphabetButton) mRootView.findViewById(R.id.def);
+	   FTAlphabetButton ghi = (FTAlphabetButton) mRootView.findViewById(R.id.ghi);
+	   FTAlphabetButton jkl = (FTAlphabetButton) mRootView.findViewById(R.id.jkl);
+	   FTAlphabetButton mno = (FTAlphabetButton) mRootView.findViewById(R.id.mno);
+	   FTAlphabetButton pqrs = (FTAlphabetButton) mRootView.findViewById(R.id.pqrs);
+	   FTAlphabetButton tuv = (FTAlphabetButton) mRootView.findViewById(R.id.tuv);
+	   FTAlphabetButton wxyz = (FTAlphabetButton) mRootView.findViewById(R.id.wxyz);
+	   
+	   abc.setOnClickListener(this);
+	   def.setOnClickListener(this);
+	   ghi.setOnClickListener(this);
+	   jkl.setOnClickListener(this);
+	   mno.setOnClickListener(this);
+	   pqrs.setOnClickListener(this);
+	   tuv.setOnClickListener(this);
+	   wxyz.setOnClickListener(this);
+   }
+    public void initList() {
     	
     	mDataSource = new IngredientsDataSource(this.getActivity(), this.getCategoryQuery());
     	mDataSource.open();
 
-        List<Ingredient> values = mDataSource.getAllIngredients();
-    	ListView listView = (ListView) rootView.findViewById(R.id.categoryLV);  
+        //List<Ingredient> values = mDataSource.getAllIngredients();
+    	List<Ingredient> values = mDataSource.getIngredientsRange(this.getCategoryQuery()+" AND (name LIKE 'A%' OR name LIKE 'B%' OR name LIKE 'C%')");
+    	mListView = (ListView) mRootView.findViewById(R.id.categoryLV);  
     	ArrayAdapter<Ingredient> adapter = new ArrayAdapter<Ingredient>(getActivity(), R.layout.ui_row_item, R.id.textView1, values);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new OnItemClickListener() {  
+    	mListView.setAdapter(adapter);
+    	mListView.setOnItemClickListener(new OnItemClickListener() {  
    
             @Override 
             public void onItemClick(AdapterView<?> parent, View view,  
@@ -77,4 +109,43 @@ public class CategoriesFragment extends FTFragment {
             }  
         });  
     }
+   
+	@Override
+	public void onClick(View v) {
+		Log.d("", Integer.toString(v.getId()));	
+		
+		String query = null;
+		
+		switch(v.getId()) {
+	        case R.id.abc:
+	        	query = QUERY_ABC;
+	        break;
+	        case R.id.def:
+	        	query = QUERY_DEF;
+	        break;
+	        case R.id.ghi:
+	        	query = QUERY_GHI;
+	        break;
+	        case R.id.jkl:
+	        	query = QUERY_JKL;
+	        break;
+	        case R.id.mno:
+	        	query = QUERY_MNO;
+	        break;
+	        case R.id.pqrs:
+	        	query = QUERY_PQRS;
+	        break;
+	        case R.id.tuv:
+	        	query = QUERY_TUV;
+	        break;
+	        case R.id.wxyz:
+	        	query = QUERY_WXYZ;
+	        break;
+		}
+		query = this.getCategoryQuery() + query;
+		
+		List<Ingredient> values = mDataSource.getIngredientsRange(query);
+    	ArrayAdapter<Ingredient> adapter = new ArrayAdapter<Ingredient>(getActivity(), R.layout.ui_row_item, R.id.textView1, values);
+    	mListView.setAdapter(adapter);
+	}
 }

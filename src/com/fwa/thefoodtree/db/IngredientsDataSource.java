@@ -85,6 +85,23 @@ public class IngredientsDataSource {
 		cursor.close();
 		return Ingredients;
 	}
+	
+	public List<Ingredient> getIngredientsRange(String query) {
+		List<Ingredient> Ingredients = new ArrayList<Ingredient>();
+
+		Cursor cursor = database.query(DatabaseHelper.TABLE_INGREDIENTS,
+				allColumns, query, null, null, null,
+				null);
+		cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			Ingredient Ingredient = cursorToIngredient(cursor);
+			Ingredients.add(Ingredient);
+			cursor.moveToNext();
+		}
+		// make sure to close the cursor
+		cursor.close();
+		return Ingredients;
+	}
 
 	private Ingredient cursorToIngredient(Cursor cursor) {
 		Ingredient ingredient = new Ingredient();

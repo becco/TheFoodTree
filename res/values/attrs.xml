@@ -4,4 +4,7 @@
 		<attr name="buttonText" format="string|reference" />
 		<attr name="buttonIcon" format="reference" />
 	</declare-styleable>
+	<declare-styleable name="FTAlphabetButton">
+		<attr name="alphabetButtonText" format="string|reference" />
+	</declare-styleable>
 </resources>
