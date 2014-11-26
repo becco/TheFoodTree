@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.fwa.thefoodtree.activity.common.FTActivity;
+import com.fwa.thefoodtree.db.DatabaseHelper;
 import com.fwa.thefoodtree.fragments.DailyReportFragment;
 import com.fwa.thefoodtree.fragments.LogIngredientsFragment;
 import com.fwa.thefoodtree.fragments.LogMenuFragment;
@@ -81,7 +82,7 @@ public class App extends FTActivity {
         if (savedInstanceState == null) {
             selectItem(0);
         }
-        
+                
               
 	}
 	

@@ -12,15 +12,18 @@
     <string name="log_ingredients_title">Log ingredients</string>
     <string name="log_menu_item_title">Log from menu</string>
     <string name="daily_report_title">Daily report</string>
+    
+    
     <!-- Food Categories -->
-    <string name="fruit_and_veg_title">Fruit &amp; Vegetables</string>
+    <string name="veg_title">Vegetables</string>
+    <string name="bread_and_pasta_title">Bread &amp; Pasta</string>
     <string name="dairy_title">Dairy</string>
-    <string name="meat_title">Meat</string>
-    <string name="fish_title">Fish</string>
-    <string name="bread_title">Bread</string>
+    <string name="fruit_title">Fruit</string>
+    <string name="cheese_title">Cheese</string>
     <string name="herbs_and_condiments_title">Herbs &amp; Condiments</string>
+    <string name="meat_title">Meat</string>
+    <string name="fish_title">Fish</string>    
     <string name="beverages_title">Beverages</string>
-    <!--  End Titles -->
     
     <!--  Navigation Strings -->
 	<string-array name="menu_item_array">

@@ -19,8 +19,7 @@ public final class R {
         public static final int push_right_out=0x7f040007;
     }
     public static final class array {
-        /**   End Titles 
-  Navigation Strings 
+        /**   Navigation Strings 
          */
         public static final int menu_item_array=0x7f080000;
     }
@@ -58,21 +57,27 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ic_launcher=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f0b000e;
+        public static final int action_settings=0x7f0b0014;
         public static final int breadcrumbs=0x7f0b0001;
-        public static final int buttonIcon=0x7f0b000c;
-        public static final int buttonText=0x7f0b000d;
-        public static final int categoriesTitle=0x7f0b0009;
+        public static final int buttonIcon=0x7f0b0012;
+        public static final int buttonText=0x7f0b0013;
+        public static final int categoriesTitle=0x7f0b000f;
+        public static final int categoryBeverages=0x7f0b000d;
+        public static final int categoryBreadAndPasta=0x7f0b0006;
         public static final int categoryButtons=0x7f0b0004;
-        public static final int categoryDairy=0x7f0b0006;
-        public static final int categoryFruitAndVeg=0x7f0b0005;
-        public static final int categoryLV=0x7f0b000a;
-        public static final int categoryMeat=0x7f0b0007;
+        public static final int categoryCheese=0x7f0b0009;
+        public static final int categoryDairy=0x7f0b0007;
+        public static final int categoryFish=0x7f0b000c;
+        public static final int categoryFruit=0x7f0b0008;
+        public static final int categoryHerbsAndCondimants=0x7f0b000a;
+        public static final int categoryLV=0x7f0b0010;
+        public static final int categoryMeat=0x7f0b000b;
+        public static final int categoryVeg=0x7f0b0005;
         public static final int content_frame=0x7f0b0002;
         public static final int drawer_layout=0x7f0b0000;
         public static final int left_drawer=0x7f0b0003;
-        public static final int sideIndex=0x7f0b0008;
-        public static final int textView1=0x7f0b000b;
+        public static final int sideIndex=0x7f0b000e;
+        public static final int textView1=0x7f0b0011;
     }
     public static final class layout {
         public static final int activity_app=0x7f030000;
@@ -94,26 +99,28 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class string {
         public static final int action_settings=0x7f070001;
         public static final int app_name=0x7f070000;
-        public static final int beverages_title=0x7f07000d;
-        public static final int bread_title=0x7f07000b;
+        public static final int beverages_title=0x7f07000f;
+        public static final int bread_and_pasta_title=0x7f070008;
+        public static final int cheese_title=0x7f07000b;
         public static final int daily_report_title=0x7f070006;
-        public static final int dairy_title=0x7f070008;
-        public static final int drawer_close=0x7f07000f;
-        public static final int drawer_open=0x7f07000e;
+        public static final int dairy_title=0x7f070009;
+        public static final int drawer_close=0x7f070011;
+        public static final int drawer_open=0x7f070010;
         /**  Some helpers 
          */
         public static final int emptyString=0x7f070003;
-        public static final int fish_title=0x7f07000a;
-        /**  Food Categories 
-         */
-        public static final int fruit_and_veg_title=0x7f070007;
+        public static final int fish_title=0x7f07000e;
+        public static final int fruit_title=0x7f07000a;
         public static final int hello_world=0x7f070002;
         public static final int herbs_and_condiments_title=0x7f07000c;
         /**  Titles 
          */
         public static final int log_ingredients_title=0x7f070004;
         public static final int log_menu_item_title=0x7f070005;
-        public static final int meat_title=0x7f070009;
+        public static final int meat_title=0x7f07000d;
+        /**  Food Categories 
+         */
+        public static final int veg_title=0x7f070007;
     }
     public static final class style {
         /** 

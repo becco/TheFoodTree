@@ -27,11 +27,11 @@
             	android:gravity="center" >
 
 					<com.fwa.thefoodtree.ui.FTCategoryButton
-						android:id="@+id/categoryFruitAndVeg"
+						android:id="@+id/categoryVeg"
 						android:layout_width="200dp"
 						android:layout_height="200dp"
 						foodtree:buttonIcon="@drawable/category_placeholder"
-						foodtree:buttonText="@string/fruit_and_veg_title" />
+						foodtree:buttonText="@string/veg_title" />
 
 				</RelativeLayout>
 
@@ -42,11 +42,11 @@
             	android:gravity="center" >
 
 					<com.fwa.thefoodtree.ui.FTCategoryButton
-						android:id="@+id/categoryDairy"
+						android:id="@+id/categoryBreadAndPasta"
 						android:layout_width="200dp"
 						android:layout_height="200dp"
 						foodtree:buttonIcon="@drawable/category_placeholder"
-						foodtree:buttonText="@string/dairy_title" />
+						foodtree:buttonText="@string/bread_and_pasta_title" />
 
             </RelativeLayout>
 
@@ -57,17 +57,142 @@
             	android:gravity="center" >
 
 				<com.fwa.thefoodtree.ui.FTCategoryButton
-						android:id="@+id/categoryMeat"
+						android:id="@+id/categoryDairy"
 						android:layout_width="200dp"
 						android:layout_height="200dp"
 						foodtree:buttonIcon="@drawable/category_placeholder"
-						foodtree:buttonText="@string/meat_title" />
+						foodtree:buttonText="@string/bread_and_pasta_title" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:background="@color/ClearColor"
+    	android:orientation="vertical" >
+
+        <LinearLayout
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_marginBottom="16dp"
+        	android:background="@color/ClearColor"
+        	android:baselineAligned="false" >
+
+            <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="0.33"
+            	android:gravity="center" >
+
+					<com.fwa.thefoodtree.ui.FTCategoryButton
+						android:id="@+id/categoryFruit"
+						android:layout_width="200dp"
+						android:layout_height="200dp"
+						foodtree:buttonIcon="@drawable/category_placeholder"
+						foodtree:buttonText="@string/fruit_title" />
+
+				</RelativeLayout>
+
+            <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="0.33"
+            	android:gravity="center" >
+
+					<com.fwa.thefoodtree.ui.FTCategoryButton
+						android:id="@+id/categoryCheese"
+						android:layout_width="200dp"
+						android:layout_height="200dp"
+						foodtree:buttonIcon="@drawable/category_placeholder"
+						foodtree:buttonText="@string/cheese_title" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="match_parent"
+            	android:layout_weight="0.33"
+            	android:gravity="center" >
+
+				<com.fwa.thefoodtree.ui.FTCategoryButton
+						android:id="@+id/categoryHerbsAndCondimants"
+						android:layout_width="200dp"
+						android:layout_height="200dp"
+						foodtree:buttonIcon="@drawable/category_placeholder"
+						foodtree:buttonText="@string/herbs_and_condiments_title" />
 
             </RelativeLayout>
 
         </LinearLayout>
 
         
+
+    </LinearLayout>
+    <LinearLayout
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:background="@color/ClearColor"
+    	android:orientation="vertical" >
+
+        <LinearLayout
+        	android:layout_width="fill_parent"
+        	android:layout_height="wrap_content"
+        	android:layout_marginBottom="16dp"
+        	android:background="@color/ClearColor"
+        	android:baselineAligned="false" >
+
+            <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="0.33"
+            	android:gravity="center" >
+
+					<com.fwa.thefoodtree.ui.FTCategoryButton
+						android:id="@+id/categoryMeat"
+						android:layout_width="200dp"
+						android:layout_height="200dp"
+						foodtree:buttonIcon="@drawable/category_placeholder"
+						foodtree:buttonText="@string/meat_title" />
+
+				</RelativeLayout>
+
+            <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="0.33"
+            	android:gravity="center" >
+
+					<com.fwa.thefoodtree.ui.FTCategoryButton
+						android:id="@+id/categoryFish"
+						android:layout_width="200dp"
+						android:layout_height="200dp"
+						foodtree:buttonIcon="@drawable/category_placeholder"
+						foodtree:buttonText="@string/fish_title" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="match_parent"
+            	android:layout_weight="0.33"
+            	android:gravity="center" >
+
+				<com.fwa.thefoodtree.ui.FTCategoryButton
+						android:id="@+id/categoryBeverages"
+						android:layout_width="200dp"
+						android:layout_height="200dp"
+						foodtree:buttonIcon="@drawable/category_placeholder"
+						foodtree:buttonText="@string/beverages_title" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        
+
+    </LinearLayout>
 
     </LinearLayout>
 
