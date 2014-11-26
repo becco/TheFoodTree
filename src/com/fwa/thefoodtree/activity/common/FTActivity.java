@@ -1,11 +1,11 @@
 package com.fwa.thefoodtree.activity.common;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentBreadCrumbs;
 import android.app.FragmentManager;
 import android.app.FragmentManager.OnBackStackChangedListener;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.fwa.thefoodtree.R;
 import com.fwa.thefoodtree.fragments.FTFragment;
@@ -14,7 +14,7 @@ import com.fwa.thefoodtree.fragments.FTFragment;
 
 public class FTActivity extends Activity implements
 		FTFragment.OnSwitchFragmentListener,
-		FTFragment.OnSetCategoryTitleListener, OnBackStackChangedListener {
+		OnBackStackChangedListener {
 
 	public FTActivity() {
 
@@ -29,9 +29,8 @@ public class FTActivity extends Activity implements
 
 	/* @interface Handles swapping in and out fragments */
 	@Override
-	public void onFragmentSwitched(Fragment fragment) {
-		Bundle args = fragment.getArguments();
-		String title = "Log fruit or veg";//args.getString(FTFragment.ARG_CATEGORY_ITEM);
+	public void onFragmentSwitched(FTFragment fragment) {
+		String title = fragment.getCategoryTitle();//"Log fruit or veg";//args.getString(FTFragment.ARG_CATEGORY_ITEM);
 		FragmentManager fragmentManager = getFragmentManager();
 		fragmentManager.beginTransaction()
 				.replace(R.id.content_frame, fragment)
@@ -41,13 +40,6 @@ public class FTActivity extends Activity implements
 		this.setActionBarTitle(title);
 	}
 	
-	/* @interface */
-	@Override
-	public void oncategoryTitleSet(String title) {
-		// TextView categoriesTitle = (TextView)
-		// this.findViewById(R.id.categoriesTitle);
-		// categoriesTitle.setText(title);
-	}
 	
 	/* set title in the action bar */
 	public void setActionBarTitle(String title) {

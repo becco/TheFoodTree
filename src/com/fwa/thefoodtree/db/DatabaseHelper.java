@@ -18,15 +18,7 @@ public class DatabaseHelper extends SQLiteAssetHelper {
 	public static final String COLUMN_MEASURE_BY_QUANTITY = "measure_by_quantity";
 	public static final String COLUMN_CATEGORY_ID = "category_id";
 	
-	public static final String QUERY_GET_VEG = "category_id=1";
-	public static final String QUERY_GET_BREAD_AND_PASTA = "category_id=2";
-	public static final String QUERY_GET_DAIRY = "category_id=3";
-	public static final String QUERY_GET_FRUIT = "category_id=4";
-	public static final String QUERY_GET_CHEESE = "category_id=5";
-	public static final String QUERY_GET_HERBS_AND_CONDIMENTS = "category_id=6";
-	public static final String QUERY_GET_FISH = "category_id=7";
-	public static final String QUERY_GET_MEAT = "category_id=8";
-	public static final String QUERY_GET_BEVERAGES = "category_id=9";
+	
 	
 
     public DatabaseHelper(Context context) {

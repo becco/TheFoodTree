@@ -16,7 +16,7 @@ public class IngredientsDataSource {
 	private SQLiteDatabase database;
 	private DatabaseHelper dbHelper;
 
-	String mTitle;
+	String mQuery;
 
 	private String[] allColumns = { DatabaseHelper.COLUMN_ID,
 			DatabaseHelper.COLUMN_NAME, DatabaseHelper.COLUMN_METRIC,
@@ -24,9 +24,9 @@ public class IngredientsDataSource {
 			DatabaseHelper.COLUMN_MEASURE_BY_QUANTITY,
 			DatabaseHelper.COLUMN_CATEGORY_ID };
 
-	public IngredientsDataSource(Context context, String title) {
+	public IngredientsDataSource(Context context, String query) {
 		dbHelper = new DatabaseHelper(context);
-		mTitle = title;
+		mQuery = query;
 	}
 
 	public void open() throws SQLException {
@@ -67,38 +67,13 @@ public class IngredientsDataSource {
 	// + " = " + id, null);
 	// }
 
-	public String getQuery() {
-		String query = null;
-		//DatabaseHelper.QUERY_GET_VEG
-		if (this.mTitle == "") {
-
-		} else if (this.mTitle == "") {
-
-		} else if (this.mTitle == "") {
-
-		} else if (this.mTitle == "") {
-
-		} else if (this.mTitle == "") {
-
-		} else if (this.mTitle == "") {
-
-		} else if (this.mTitle == "") {
-
-		} else if (this.mTitle == "") {
-
-		} else if (this.mTitle == "") {
-
-		}
-		return query;
-	}
+	
 
 	public List<Ingredient> getAllIngredients() {
 		List<Ingredient> Ingredients = new ArrayList<Ingredient>();
-		// Cursor findEntry = db.query("sku_table", columns, "owner=?", new
-		// String[] { owner }, null, null, null);
 
 		Cursor cursor = database.query(DatabaseHelper.TABLE_INGREDIENTS,
-				allColumns, this.getQuery(), null, null, null,
+				allColumns, this.mQuery, null, null, null,
 				null);
 		cursor.moveToFirst();
 		while (!cursor.isAfterLast()) {

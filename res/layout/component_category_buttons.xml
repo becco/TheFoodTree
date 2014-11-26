@@ -61,7 +61,7 @@
 						android:layout_width="200dp"
 						android:layout_height="200dp"
 						foodtree:buttonIcon="@drawable/category_placeholder"
-						foodtree:buttonText="@string/bread_and_pasta_title" />
+						foodtree:buttonText="@string/dairy_title" />
 
             </RelativeLayout>
 

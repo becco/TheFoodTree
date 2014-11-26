@@ -32,13 +32,13 @@ public class CategoriesFragment extends FTFragment {
     
     public void setMainTitle(View rootView) {
     	TextView categoriesTitle = (TextView) rootView.findViewById(R.id.categoriesTitle);
-    	categoriesTitle.setText(this.getTitle());
+    	categoriesTitle.setText(this.getCategoryTitle());
     }
    
    
     public void initList(View rootView) {
-
-    	mDataSource = new IngredientsDataSource(this.getActivity(), this.getTitle());
+    	
+    	mDataSource = new IngredientsDataSource(this.getActivity(), this.getCategoryQuery());
     	mDataSource.open();
 
         List<Ingredient> values = mDataSource.getAllIngredients();

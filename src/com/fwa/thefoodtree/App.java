@@ -65,12 +65,12 @@ public class App extends FTActivity {
                 R.string.drawer_close  /* "close drawer" description for accessibility */
                 ) {
             public void onDrawerClosed(View view) {
-            	setTitle(mTitle);
+            	setActionBarTitle(mTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
             public void onDrawerOpened(View drawerView) {
-                setTitle(mDrawerTitle);
+            	setActionBarTitle(mDrawerTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
@@ -84,10 +84,6 @@ public class App extends FTActivity {
         }
                 
               
-	}
-	
-	public void setTitle(String title) {
-		this.setActionBarTitle(title);
 	}
 
     @Override
@@ -120,7 +116,7 @@ public class App extends FTActivity {
     	String title = mMenuItemTitles[position];
         mDrawerList.setItemChecked(position, true);
         mDrawerLayout.closeDrawer(mDrawerList);
-        this.setTitle(title);
+        this.setActionBarTitle(title);
         
         /* update the breadcrumbs */
         this.updateBreadCrumbs(mFragmentBreadCrumbs, title);
