@@ -1,6 +1,9 @@
 package com.fwa.thefoodtree.db;
 
-public class Ingredient {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Ingredient implements Parcelable{
 
 	private long id;
 	private String name;
@@ -64,6 +67,18 @@ public class Ingredient {
 
 	public void setIngredient(String value) {
 		this.name = value;
+	}
+
+	@Override
+	public int describeContents() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel arg0, int arg1) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

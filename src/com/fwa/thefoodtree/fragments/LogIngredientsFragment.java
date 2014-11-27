@@ -1,8 +1,6 @@
 package com.fwa.thefoodtree.fragments;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +10,7 @@ import com.fwa.thefoodtree.ui.FTCategoryButton;
 
 public class LogIngredientsFragment extends FTFragment implements View.OnClickListener {
 
-	OnSwitchFragmentListener mSwitchFragmentListener;
+	
 	
 	public static final String QUERY_GET_VEG = "category_id=1";
 	public static final String QUERY_GET_BREAD_AND_PASTA = "category_id=2";
@@ -64,17 +62,6 @@ public class LogIngredientsFragment extends FTFragment implements View.OnClickLi
 		categoryBeverages.setOnClickListener(this);
 
 
-	}
-
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-		try {
-			mSwitchFragmentListener = (OnSwitchFragmentListener) activity;
-		} catch (ClassCastException e) {
-			throw new ClassCastException(activity.toString()
-					+ " must implement OnSwitchFragmentListener");
-		}
 	}
 
 	@Override

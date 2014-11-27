@@ -2,6 +2,7 @@ package com.fwa.thefoodtree.fragments;
 
 import java.util.List;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import com.fwa.thefoodtree.R;
 import com.fwa.thefoodtree.db.Ingredient;
 import com.fwa.thefoodtree.db.IngredientsDataSource;
+import com.fwa.thefoodtree.fragments.FTFragment.OnSwitchFragmentListener;
 import com.fwa.thefoodtree.ui.FTAlphabetButton;
 
 public class CategoriesFragment extends FTFragment implements View.OnClickListener {
@@ -33,19 +35,16 @@ public class CategoriesFragment extends FTFragment implements View.OnClickListen
 	public static final String QUERY_TUV = " AND (name LIKE 'T%' OR name LIKE 'U%' OR name LIKE 'V%')";
 	public static final String QUERY_WXYZ = " AND (name LIKE 'W%' OR name LIKE 'X%' OR name LIKE 'Y%' OR name LIKE 'Z%')";
 	
+	public List<Ingredient> mListValues;
+	
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {    		
     	mRootView = inflater.inflate(R.layout.fragment_categories, container, false);
         
-        this.setMainTitle();
+    	this.setMainTitle(mRootView);
         this.initList();
         this.setupButtons();
         return mRootView;
-    }
-    
-    public void setMainTitle() {
-    	TextView categoriesTitle = (TextView) mRootView.findViewById(R.id.categoriesTitle);
-    	categoriesTitle.setText(this.getCategoryTitle());
     }
    
    public void setupButtons() {
@@ -72,39 +71,23 @@ public class CategoriesFragment extends FTFragment implements View.OnClickListen
     	mDataSource = new IngredientsDataSource(this.getActivity(), this.getCategoryQuery());
     	mDataSource.open();
 
-        //List<Ingredient> values = mDataSource.getAllIngredients();
-    	List<Ingredient> values = mDataSource.getIngredientsRange(this.getCategoryQuery()+" AND (name LIKE 'A%' OR name LIKE 'B%' OR name LIKE 'C%')");
     	mListView = (ListView) mRootView.findViewById(R.id.categoryLV);  
-    	ArrayAdapter<Ingredient> adapter = new ArrayAdapter<Ingredient>(getActivity(), R.layout.ui_row_item, R.id.textView1, values);
-    	mListView.setAdapter(adapter);
+    	
+    	this.populateListView(this.getCategoryQuery() + QUERY_ABC);
+    	
     	mListView.setOnItemClickListener(new OnItemClickListener() {  
    
             @Override 
-            public void onItemClick(AdapterView<?> parent, View view,  
-                    int position, long id) {  
-                //create a Fragment  
-//                Fragment detailFragment = new FragmentDetail();  
-//                   
-//               
-//                Bundle mBundle = new Bundle();  
-//                mBundle.putString("arg", mDataSourceList.get(position));  
-//                detailFragment.setArguments(mBundle);  
-//                   
-//                final FragmentManager fragmentManager = getActivity().getSupportFragmentManager();  
-//                final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();  
-//                   
-//                //check if the device is landscape or portrait 
-//                Configuration configuration = getActivity().getResources().getConfiguration();  
-//                int ori = configuration.orientation;  
-//                   
-//                fragmentTransaction.replace(R.id.detail_container, detailFragment);  
-//                   
-//                if(ori == configuration.ORIENTATION_PORTRAIT){  
-//                    fragmentTransaction.addToBackStack(null);  
-//                }  
-//                   
-//                fragmentTransaction.commit();  
-                   
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) { 
+
+            	Ingredient ingredient = mListValues.get(position);
+            	
+            	FTFragment fragment = new ItemFragment();
+        		Bundle args = new Bundle();
+        		args.putString(FTFragment.ARG_CATEGORY_ITEM, ingredient.getName());	
+	        	args.putParcelable(FTFragment.SELECTED_ITEM, ingredient);
+        		fragment.setArguments(args);
+        		mSwitchFragmentListener.onFragmentSwitched(fragment);   
                    
             }  
         });  
@@ -112,7 +95,6 @@ public class CategoriesFragment extends FTFragment implements View.OnClickListen
    
 	@Override
 	public void onClick(View v) {
-		Log.d("", Integer.toString(v.getId()));	
 		
 		String query = null;
 		
@@ -144,8 +126,13 @@ public class CategoriesFragment extends FTFragment implements View.OnClickListen
 		}
 		query = this.getCategoryQuery() + query;
 		
-		List<Ingredient> values = mDataSource.getIngredientsRange(query);
-    	ArrayAdapter<Ingredient> adapter = new ArrayAdapter<Ingredient>(getActivity(), R.layout.ui_row_item, R.id.textView1, values);
+		this.populateListView(query);
+	}
+	
+	public void populateListView(String query) {
+		mListValues = mDataSource.getIngredientsRange(query);
+    	ArrayAdapter<Ingredient> adapter = new ArrayAdapter<Ingredient>(getActivity(), R.layout.ui_row_item, R.id.textView1, mListValues);
     	mListView.setAdapter(adapter);
 	}
+	
 }

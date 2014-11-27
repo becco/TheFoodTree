@@ -30,7 +30,7 @@ public class FTActivity extends Activity implements
 	/* @interface Handles swapping in and out fragments */
 	@Override
 	public void onFragmentSwitched(FTFragment fragment) {
-		String title = fragment.getCategoryTitle();//"Log fruit or veg";//args.getString(FTFragment.ARG_CATEGORY_ITEM);
+		String title = fragment.getTitle();//"Log fruit or veg";//args.getString(FTFragment.ARG_CATEGORY_ITEM);
 		FragmentManager fragmentManager = getFragmentManager();
 		fragmentManager.beginTransaction()
 				.replace(R.id.content_frame, fragment)
