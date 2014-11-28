@@ -19,9 +19,11 @@ public final class R {
         public static final int push_right_out=0x7f040007;
     }
     public static final class array {
+        public static final int kilogram_choices=0x7f090001;
+        public static final int litre_choices=0x7f090002;
         /**   Navigation Strings 
          */
-        public static final int menu_item_array=0x7f080000;
+        public static final int menu_item_array=0x7f090000;
     }
     public static final class attr {
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -38,6 +40,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
          */
         public static final int buttonText=0x7f010000;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+         */
+        public static final int reasonButtonText=0x7f010003;
     }
     public static final class color {
         public static final int ClearColor=0x7f050001;
@@ -53,7 +60,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int activity_horizontal_margin=0x7f060000;
         public static final int activity_vertical_margin=0x7f060001;
         public static final int breadcrumb_height=0x7f060002;
-        public static final int list_margin_top_size=0x7f060004;
+        public static final int label_font_size=0x7f060004;
+        public static final int list_margin_top_size=0x7f060005;
         public static final int title_font_size=0x7f060003;
     }
     public static final class drawable {
@@ -64,37 +72,54 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int ic_launcher=0x7f020004;
     }
     public static final class id {
-        public static final int abc=0x7f0b0005;
-        public static final int action_settings=0x7f0b001e;
-        public static final int alphabetButtonText=0x7f0b001b;
-        public static final int alphabetButtons=0x7f0b0018;
-        public static final int breadcrumbs=0x7f0b0001;
-        public static final int buttonIcon=0x7f0b001c;
-        public static final int buttonText=0x7f0b001d;
-        public static final int categoriesTitle=0x7f0b0017;
-        public static final int categoryBeverages=0x7f0b0015;
-        public static final int categoryBreadAndPasta=0x7f0b000e;
-        public static final int categoryButtons=0x7f0b0004;
-        public static final int categoryCheese=0x7f0b0011;
-        public static final int categoryDairy=0x7f0b000f;
-        public static final int categoryFish=0x7f0b0014;
-        public static final int categoryFruit=0x7f0b0010;
-        public static final int categoryHerbsAndCondimants=0x7f0b0012;
-        public static final int categoryLV=0x7f0b0019;
-        public static final int categoryMeat=0x7f0b0013;
-        public static final int categoryVeg=0x7f0b000d;
-        public static final int content_frame=0x7f0b0002;
-        public static final int def=0x7f0b0006;
-        public static final int drawer_layout=0x7f0b0000;
-        public static final int ghi=0x7f0b0007;
-        public static final int jkl=0x7f0b0008;
-        public static final int left_drawer=0x7f0b0003;
-        public static final int mno=0x7f0b0009;
-        public static final int pqrs=0x7f0b000a;
-        public static final int sideIndex=0x7f0b0016;
-        public static final int textView1=0x7f0b001a;
-        public static final int tuv=0x7f0b000b;
-        public static final int wxyz=0x7f0b000c;
+        public static final int abc=0x7f07000d;
+        public static final int action_settings=0x7f07002f;
+        public static final int alphabetButtonText=0x7f07002b;
+        public static final int alphabetButtons=0x7f070020;
+        public static final int breadcrumbs=0x7f070009;
+        public static final int buttonIcon=0x7f07002c;
+        public static final int buttonText=0x7f07002d;
+        public static final int categoriesTitle=0x7f07001f;
+        public static final int categoryBeverages=0x7f07001d;
+        public static final int categoryBreadAndPasta=0x7f070016;
+        public static final int categoryButtons=0x7f07000c;
+        public static final int categoryCheese=0x7f070019;
+        public static final int categoryDairy=0x7f070017;
+        public static final int categoryFish=0x7f07001c;
+        public static final int categoryFruit=0x7f070018;
+        public static final int categoryHerbsAndCondimants=0x7f07001a;
+        public static final int categoryLV=0x7f070021;
+        public static final int categoryMeat=0x7f07001b;
+        public static final int categoryVeg=0x7f070015;
+        public static final int content_frame=0x7f07000a;
+        public static final int def=0x7f07000e;
+        public static final int drawer_layout=0x7f070008;
+        public static final int ghi=0x7f07000f;
+        public static final int howManyInput=0x7f070023;
+        public static final int howManyTitle=0x7f070022;
+        public static final int jkl=0x7f070010;
+        public static final int left_drawer=0x7f07000b;
+        public static final int logButton=0x7f070029;
+        public static final int metricDropDown=0x7f070024;
+        public static final int mno=0x7f070011;
+        public static final int otherReason=0x7f070027;
+        public static final int otherReasonInput=0x7f070028;
+        public static final int pqrs=0x7f070012;
+        public static final int reasonButton1=0x7f070000;
+        public static final int reasonButton2=0x7f070001;
+        public static final int reasonButton3=0x7f070002;
+        public static final int reasonButton4=0x7f070003;
+        public static final int reasonButton5=0x7f070004;
+        public static final int reasonButton6=0x7f070005;
+        public static final int reasonButton7=0x7f070006;
+        public static final int reasonButton8=0x7f070007;
+        public static final int reasonButtonText=0x7f07002e;
+        public static final int reasonLayout=0x7f070026;
+        public static final int reasonTitle=0x7f070025;
+        public static final int sideIndex=0x7f07001e;
+        public static final int textView1=0x7f07002a;
+        public static final int tuv=0x7f070013;
+        public static final int wxyz=0x7f070014;
     }
     public static final class layout {
         public static final int activity_app=0x7f030000;
@@ -110,48 +135,54 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int navigation_drawer_list_item=0x7f03000a;
         public static final int ui_alphabet_button=0x7f03000b;
         public static final int ui_category_button=0x7f03000c;
-        public static final int ui_row_item=0x7f03000d;
-        public static final int ui_row_section=0x7f03000e;
+        public static final int ui_reason_button=0x7f03000d;
+        public static final int ui_row_item=0x7f03000e;
+        public static final int ui_row_section=0x7f03000f;
     }
     public static final class menu {
-        public static final int app=0x7f0a0000;
+        public static final int app=0x7f0b0000;
     }
     public static final class string {
         /**   End Navigation Strings 
   Alphabet list view 
          */
-        public static final int a_b_c=0x7f070012;
-        public static final int action_settings=0x7f070001;
-        public static final int app_name=0x7f070000;
-        public static final int beverages_title=0x7f07000f;
-        public static final int bread_and_pasta_title=0x7f070008;
-        public static final int cheese_title=0x7f07000b;
-        public static final int d_e_f=0x7f070013;
-        public static final int daily_report_title=0x7f070006;
-        public static final int dairy_title=0x7f070009;
-        public static final int drawer_close=0x7f070011;
-        public static final int drawer_open=0x7f070010;
+        public static final int a_b_c=0x7f080012;
+        public static final int action_settings=0x7f080001;
+        public static final int app_name=0x7f080000;
+        public static final int beverages_title=0x7f08000f;
+        public static final int bread_and_pasta_title=0x7f080008;
+        public static final int cheese_title=0x7f08000b;
+        public static final int d_e_f=0x7f080013;
+        public static final int daily_report_title=0x7f080006;
+        public static final int dairy_title=0x7f080009;
+        public static final int drawer_close=0x7f080011;
+        public static final int drawer_open=0x7f080010;
         /**  Some helpers 
          */
-        public static final int emptyString=0x7f070003;
-        public static final int fish_title=0x7f07000e;
-        public static final int fruit_title=0x7f07000a;
-        public static final int g_h_i=0x7f070014;
-        public static final int hello_world=0x7f070002;
-        public static final int herbs_and_condiments_title=0x7f07000c;
-        public static final int j_k_l=0x7f070015;
+        public static final int emptyString=0x7f080003;
+        public static final int finish_logging_button=0x7f08001c;
+        public static final int fish_title=0x7f08000e;
+        public static final int fruit_title=0x7f08000a;
+        public static final int g_h_i=0x7f080014;
+        public static final int hello_world=0x7f080002;
+        public static final int herbs_and_condiments_title=0x7f08000c;
+        /**   Labels 
+         */
+        public static final int how_many_label=0x7f08001a;
+        public static final int j_k_l=0x7f080015;
         /**  Titles 
          */
-        public static final int log_ingredients_title=0x7f070004;
-        public static final int log_menu_item_title=0x7f070005;
-        public static final int m_n_o=0x7f070016;
-        public static final int meat_title=0x7f07000d;
-        public static final int p_q_r_s=0x7f070017;
-        public static final int t_u_v=0x7f070018;
+        public static final int log_ingredients_title=0x7f080004;
+        public static final int log_menu_item_title=0x7f080005;
+        public static final int m_n_o=0x7f080016;
+        public static final int meat_title=0x7f08000d;
+        public static final int p_q_r_s=0x7f080017;
+        public static final int reason_label=0x7f08001b;
+        public static final int t_u_v=0x7f080018;
         /**  Food Categories 
          */
-        public static final int veg_title=0x7f070007;
-        public static final int w_x_y_z=0x7f070019;
+        public static final int veg_title=0x7f080007;
+        public static final int w_x_y_z=0x7f080019;
     }
     public static final class style {
         /** 
@@ -175,12 +206,12 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f090000;
+        public static final int AppBaseTheme=0x7f0a0000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f090001;
-        public static final int dashboardButton=0x7f090002;
+        public static final int AppTheme=0x7f0a0001;
+        public static final int dashboardButton=0x7f0a0002;
     }
     public static final class styleable {
         /** Attributes that can be used with a FTAlphabetButton.
@@ -243,5 +274,29 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr name com.fwa.thefoodtree:buttonText
         */
         public static final int FTCategoryButton_buttonText = 0;
+        /** Attributes that can be used with a FTReasonButton.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #FTReasonButton_reasonButtonText com.fwa.thefoodtree:reasonButtonText}</code></td><td></td></tr>
+           </table>
+           @see #FTReasonButton_reasonButtonText
+         */
+        public static final int[] FTReasonButton = {
+            0x7f010003
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.fwa.thefoodtree.R.attr#reasonButtonText}
+          attribute's value can be found in the {@link #FTReasonButton} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+          @attr name com.fwa.thefoodtree:reasonButtonText
+        */
+        public static final int FTReasonButton_reasonButtonText = 0;
     };
 }

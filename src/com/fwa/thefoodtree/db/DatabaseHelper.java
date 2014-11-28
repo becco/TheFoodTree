@@ -10,6 +10,7 @@ public class DatabaseHelper extends SQLiteAssetHelper {
     private static final int DATABASE_VERSION = 1;
     
     public static final String TABLE_INGREDIENTS = "ingredients";
+    public static final String TABLE_REASONS = "reasons";
     
 	public static final String COLUMN_ID = "_id";
 	public static final String COLUMN_NAME = "name";

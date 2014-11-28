@@ -7,4 +7,7 @@
 	<declare-styleable name="FTAlphabetButton">
 		<attr name="alphabetButtonText" format="string|reference" />
 	</declare-styleable>
+	<declare-styleable name="FTReasonButton">
+		<attr name="reasonButtonText" format="string|reference" />
+	</declare-styleable>
 </resources>

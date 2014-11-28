@@ -44,5 +44,20 @@
     <string name="p_q_r_s">PQRS</string>
     <string name="t_u_v">TUV</string>
     <string name="w_x_y_z">WXYZ</string>
+    
+    <!--  Labels -->
+    <string name="how_many_label">How %s?</string>
+    <string name="reason_label">What\'s the reason for waste?</string>
+    <string name="finish_logging_button">Finish logging</string>
+    
+    <string-array name="kilogram_choices">
+        <item>Kg</item>
+        <item>g</item>
+    </string-array>
+    
+    <string-array name="litre_choices">
+        <item>L</item>
+        <item>ml</item>
+    </string-array>
 </resources>
  

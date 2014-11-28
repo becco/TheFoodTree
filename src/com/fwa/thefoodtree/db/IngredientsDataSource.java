@@ -24,9 +24,8 @@ public class IngredientsDataSource {
 			DatabaseHelper.COLUMN_MEASURE_BY_QUANTITY,
 			DatabaseHelper.COLUMN_CATEGORY_ID };
 
-	public IngredientsDataSource(Context context, String query) {
+	public IngredientsDataSource(Context context) {
 		dbHelper = new DatabaseHelper(context);
-		mQuery = query;
 	}
 
 	public void open() throws SQLException {
@@ -69,22 +68,22 @@ public class IngredientsDataSource {
 
 	
 
-	public List<Ingredient> getAllIngredients() {
-		List<Ingredient> Ingredients = new ArrayList<Ingredient>();
-
-		Cursor cursor = database.query(DatabaseHelper.TABLE_INGREDIENTS,
-				allColumns, this.mQuery, null, null, null,
-				null);
-		cursor.moveToFirst();
-		while (!cursor.isAfterLast()) {
-			Ingredient Ingredient = cursorToIngredient(cursor);
-			Ingredients.add(Ingredient);
-			cursor.moveToNext();
-		}
-		// make sure to close the cursor
-		cursor.close();
-		return Ingredients;
-	}
+//	public List<Ingredient> getAllIngredients() {
+//		List<Ingredient> Ingredients = new ArrayList<Ingredient>();
+//
+//		Cursor cursor = database.query(DatabaseHelper.TABLE_INGREDIENTS,
+//				allColumns, query, null, null, null,
+//				null);
+//		cursor.moveToFirst();
+//		while (!cursor.isAfterLast()) {
+//			Ingredient Ingredient = cursorToIngredient(cursor);
+//			Ingredients.add(Ingredient);
+//			cursor.moveToNext();
+//		}
+//		// make sure to close the cursor
+//		cursor.close();
+//		return Ingredients;
+//	}
 	
 	public List<Ingredient> getIngredientsRange(String query) {
 		List<Ingredient> Ingredients = new ArrayList<Ingredient>();
@@ -105,7 +104,7 @@ public class IngredientsDataSource {
 
 	private Ingredient cursorToIngredient(Cursor cursor) {
 		Ingredient ingredient = new Ingredient();
-		ingredient.setId(cursor.getLong(0));
+		ingredient.setId(cursor.getInt(0));
 		ingredient.setIngredient(cursor.getString(1));
 		return ingredient;
 	}

@@ -5,18 +5,18 @@ import android.os.Parcelable;
 
 public class Ingredient implements Parcelable{
 
-	private long id;
+	private int id;
 	private String name;
 	private String metric;
 	private double costPerOne;
-	private boolean measureByQuantity;
-	private long categoryId;
+	private int measureByQuantity;
+	private int categoryId;
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -44,19 +44,19 @@ public class Ingredient implements Parcelable{
 		this.costPerOne = costPerOne;
 	}
 
-	public boolean isMeasureByQuantity() {
+	public int getMeasuredByQuantity() {
 		return measureByQuantity;
 	}
 
-	public void setMeasureByQuantity(boolean measureByQuantity) {
+	public void setMeasureByQuantity(int measureByQuantity) {
 		this.measureByQuantity = measureByQuantity;
 	}
 
-	public long getCategoryId() {
+	public int getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(long categoryId) {
+	public void setCategoryId(int categoryId) {
 		this.categoryId = categoryId;
 	}
 

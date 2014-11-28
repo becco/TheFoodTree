@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
+
     <TextView
         android:id="@+id/categoriesTitle"
         android:layout_width="fill_parent"
@@ -11,5 +11,141 @@
         android:gravity="center"
         android:text="@string/log_ingredients_title"
         android:textSize="@dimen/title_font_size" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/ClearColor"
+        android:baselineAligned="false" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2" >
+
+            <TextView
+                android:id="@+id/howManyTitle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="How many something"
+                android:textSize="@dimen/label_font_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2" >
+
+            <EditText
+                android:id="@+id/howManyInput"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:textSize="@dimen/label_font_size" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2" >
+
+            <Spinner
+                android:id="@+id/metricDropDown"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2" >
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2" >
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/ClearColor"
+        android:baselineAligned="false" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2" >
+
+            <TextView
+                android:id="@+id/reasonTitle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/reason_label"
+                android:textSize="@dimen/label_font_size" />
+        </RelativeLayout>
+		
+       
+        <!--
+        <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="0.2" >
+        
+        </RelativeLayout>
+        <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="0.2" >
+        </RelativeLayout>
+        <RelativeLayout
+            	android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_weight="0.2" >
+        </RelativeLayout>
+        -->
+    </LinearLayout>
+    <LinearLayout
+		    android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/reasonLayout">
+            
+   	</LinearLayout>
+   	<LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        <TextView
+	            android:id="@+id/otherReason"
+	            android:layout_width="wrap_content"
+            	android:layout_height="wrap_content"
+	            android:clickable="true"
+	            android:textColor="@color/black"
+	            android:textIsSelectable="false"
+	            android:textSize="@dimen/label_font_size" />
+        <EditText
+                android:id="@+id/otherReasonInput"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/label_font_size"
+                android:visibility="gone"/>
+    </LinearLayout>
+   	<LinearLayout
+		    android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+   		<Button
+   		    android:id="@+id/logButton"
+   		    android:layout_width="fill_parent"
+   		    android:layout_height="wrap_content"
+   		    android:text="@string/finish_logging_button"
+   		    android:textSize="@dimen/title_font_size" />
+    
+   	</LinearLayout>
 
 </LinearLayout>

@@ -46,7 +46,7 @@ public class FTFragment extends Fragment {
     public String getCategoryQuery() {
     	return this.getArguments().getString(ARG_CATEGORY_QUERY);
     }
-    /* Get the query for the category */
+    /* Get the selected ingredient */
     public Ingredient getIngredient() {
     	return this.getArguments().getParcelable(SELECTED_ITEM);
     }

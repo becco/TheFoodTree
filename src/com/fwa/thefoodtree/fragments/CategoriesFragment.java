@@ -68,7 +68,7 @@ public class CategoriesFragment extends FTFragment implements View.OnClickListen
    }
     public void initList() {
     	
-    	mDataSource = new IngredientsDataSource(this.getActivity(), this.getCategoryQuery());
+    	mDataSource = new IngredientsDataSource(this.getActivity());
     	mDataSource.open();
 
     	mListView = (ListView) mRootView.findViewById(R.id.categoryLV);  

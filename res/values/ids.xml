@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="reasonButton1" type="id"/>
+    <item name="reasonButton2" type="id"/>
+    <item name="reasonButton3" type="id"/>
+    <item name="reasonButton4" type="id"/>
+    <item name="reasonButton5" type="id"/>
+    <item name="reasonButton6" type="id"/>
+    <item name="reasonButton7" type="id"/>
+    <item name="reasonButton8" type="id"/>
+</resources>
