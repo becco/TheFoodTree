@@ -3,7 +3,6 @@ package com.fwa.thefoodtree.db;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -103,9 +102,24 @@ public class IngredientsDataSource {
 	}
 
 	private Ingredient cursorToIngredient(Cursor cursor) {
-		Ingredient ingredient = new Ingredient();
-		ingredient.setId(cursor.getInt(0));
-		ingredient.setIngredient(cursor.getString(1));
+	   	
+	   	int idIndex = cursor.getColumnIndexOrThrow("_id");
+        int nameIndex = cursor.getColumnIndexOrThrow("name");
+        int metricIndex = cursor.getColumnIndexOrThrow("metric");
+        int costIndex = cursor.getColumnIndexOrThrow("cost_per_one");
+        int measureIndex = cursor.getColumnIndexOrThrow("measure_by_quantity");
+        int catIdIndex = cursor.getColumnIndexOrThrow("category_id");
+        
+        Log.d("id", Integer.toString(cursor.getInt(idIndex)));
+        Log.d("name", cursor.getString(nameIndex));
+        Log.d("metric", cursor.getString(metricIndex));
+	   	Log.d("costPerOne", Double.toString(cursor.getDouble(costIndex)));
+	   	Log.d("measure", Integer.toString(cursor.getInt(measureIndex)));
+	   	Log.d("catid", Integer.toString(cursor.getInt(catIdIndex)));
+	   	Log.d("", "----------------------");
+        
+		Ingredient ingredient = new Ingredient(cursor.getInt(idIndex), cursor.getString(nameIndex), cursor.getDouble(costIndex), cursor.getString(metricIndex), cursor.getInt(measureIndex), cursor.getInt(catIdIndex));
 		return ingredient;
 	}
+	
 }

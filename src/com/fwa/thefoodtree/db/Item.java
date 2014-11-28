@@ -1,25 +1,54 @@
 package com.fwa.thefoodtree.db;
 
-import java.util.Date;
 
 
 public class Item {
 	
+	private int id;
+	private int ingredientId;
 	private String name;
 	private double totalCost;
 	private int categoryId;
-	private Date date;
+	private String date;
 	private int reasonId;
-	private boolean otherReason;
+	private int otherReasonId;
 	
-	public Item(String n, double c, int cid, Date d, int rid, boolean or) {
+	public Item(int id, String n, double c, String d, int rid, int cid, int ingId, int or) {
+		this.id = id;
 		this.name = n;
 		this.totalCost = c;
 		this.categoryId = cid;
 		this.date = d;
 		this.reasonId = rid;
-		this.otherReason = or;
+		this.otherReasonId = or;
+		this.ingredientId = ingId;
 	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getIngredientId() {
+		return ingredientId;
+	}
+
+	public void setIngredientId(int ingredientId) {
+		this.ingredientId = ingredientId;
+	}
+
+	public double getTotalCost() {
+		return totalCost;
+	}
+
+	public void setTotalCost(double totalCost) {
+		this.totalCost = totalCost;
+	}
+	
+	
 
 	public String getName() {
 		return name;
@@ -45,11 +74,11 @@ public class Item {
 		this.categoryId = categoryId;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
@@ -61,12 +90,12 @@ public class Item {
 		this.reasonId = reasonId;
 	}
 
-	public boolean isOtherReason() {
-		return otherReason;
+	public int getOtherReasonId() {
+		return otherReasonId;
 	}
 
-	public void setOtherReason(boolean otherReason) {
-		this.otherReason = otherReason;
+	public void setOtherReasonId(int otherReason) {
+		this.otherReasonId = otherReason;
 	}
 	
 }

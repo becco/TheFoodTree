@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.fwa.thefoodtree.R;
 import com.fwa.thefoodtree.db.Ingredient;
 import com.fwa.thefoodtree.db.Item;
+import com.fwa.thefoodtree.db.ItemDataSource;
 import com.fwa.thefoodtree.db.Reason;
 import com.fwa.thefoodtree.db.ReasonsDataSource;
 import com.fwa.thefoodtree.ui.FTReasonButton;
@@ -31,6 +32,12 @@ public class ItemFragment extends FTFragment {
 	private EditText howManyInput;
 	
 	private Ingredient mIngredient;
+	private int mId;
+	private int mCatId;
+	private String mName;
+	private String mMetric;
+	private double mCostPerOne;
+	private int mMeasuredByQuantity;
 	
 	private int mReasonId;
 	
@@ -39,10 +46,10 @@ public class ItemFragment extends FTFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		mRootView = inflater.inflate(R.layout.fragment_item, container, false);
 		
-		this.setupUIElements();
 		this.setMainTitle(mRootView);
 		this.getIngredientDetails();
 		this.getReasons();
+		this.setupUIElements();
 		
 		return mRootView;
 	}
@@ -61,27 +68,65 @@ public class ItemFragment extends FTFragment {
 		howManyTitle = (TextView) mRootView.findViewById(R.id.howManyTitle);  
 		howManyInput = (EditText) mRootView.findViewById(R.id.howManyInput);  
 		
+		mId = mIngredient.getId();
+		mName = mIngredient.getName();
+		mCostPerOne = mIngredient.getCostPerOne();
+		mCatId = mIngredient.getCategoryId();
+		mMeasuredByQuantity = mIngredient.getMeasuredByQuantity();
+		mMetric = mIngredient.getMetric();
+		
+		String muchMany = "much";
+		int valuesArrayId;
+		
+		// How many text view
+		String howManyTitleFormat = mRootView.getContext().getString(R.string.how_many_label); 
+		String howMany = String.format(howManyTitleFormat, muchMany + " " + mName);
+		howManyTitle.setText(howMany);		
+		
+		if(mMeasuredByQuantity == 1) {
+			muchMany = "many";
+		}
+		
+		// Metric dropdown
+		if(mMetric == "g") {
+			valuesArrayId = R.array.kilogram_choices;
+		}
+		else {
+			valuesArrayId = R.array.litre_choices;
+		}
+		Spinner metricDropDown = (Spinner) mRootView.findViewById(R.id.metricDropDown);  
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(), valuesArrayId, android.R.layout.simple_spinner_item);
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		metricDropDown.setAdapter(adapter);
+		
 		logButton.setOnClickListener(new View.OnClickListener() {
              public void onClick(View v) {
 
-            	 String name = mIngredient.getName();
+            	 
             	 double amount = Double.parseDouble(howManyInput.getText().toString());
-            	 double costPerOne = mIngredient.getCostPerOne();
-            	 double totalCost = costPerOne * amount;
-            	 int catId = mIngredient.getCategoryId();
+            	 
+            	 double totalCost = mCostPerOne * amount;
+            	 
             	 Date date = new Date();
             	 int reasonId = getReasonId();
-            	 boolean otherReason = false;
+            	 int otherReason = 0;
             	 
-            	 Log.d("name", name);
-            	 Log.d("amount", Double.toString(amount));
-            	 Log.d("totalcost", Double.toString(totalCost));
-            	 Log.d("catid", Integer.toString(catId));
-            	 Log.d("date", date.toString());
-            	 Log.d("reasonid", Integer.toString(reasonId));
-            	 Log.d("otherreason", Boolean.toString(otherReason));
             	 
-            	 Item item = new Item(name, totalCost, catId, date, reasonId, otherReason);
+            	 
+            	 ItemDataSource ds = new ItemDataSource(getActivity());
+            	 ds.open();
+            	 Item item = ds.createItem(mName, totalCost, date.toString(), reasonId, mCatId, mId, otherReason);
+            	 
+            	 Log.d("SAVED", "======THIS ITEM======");
+            	 Log.d("id", Integer.toString(item.getId()));
+            	 Log.d("name", item.getName());
+            	 Log.d("totalcost", Double.toString(item.getTotalCost()));
+            	 Log.d("catid", Integer.toString(item.getCategoryId()));
+            	 Log.d("date", item.getDate());
+            	 Log.d("reasonid", Integer.toString(item.getReasonId()));
+            	 Log.d("otherreason", Integer.toString(item.getOtherReasonId()));
+            	 
+            	 //Item item = new Item(mName, totalCost, date, reasonId, mCatId, mId, otherReason);
             	 
             	 // save the item
              }
@@ -93,48 +138,7 @@ public class ItemFragment extends FTFragment {
 	}
 	
 	public void getIngredientDetails() {
-		
 		mIngredient = this.getIngredient();
-		
-		String metric = mIngredient.getMetric();
-		String name = mIngredient.getName();
-		double costPerOne = mIngredient.getCostPerOne();
-		int isMeasuredByQuantity = mIngredient.getMeasuredByQuantity();
-		
-		String muchMany = "much";
-		
-		Log.d("much/many", Integer.toString(isMeasuredByQuantity));
-		
-		if(isMeasuredByQuantity == 1) {
-			Log.d("", "equal to 1");
-			muchMany = "much";
-		}
-		else {
-			muchMany = "many";
-		}
-		
-		// How many text view
-		
-		String howManyTitleFormat = mRootView.getContext().getString(R.string.how_many_label); 
-		String howMany = String.format(howManyTitleFormat, muchMany + " " + name);
-		howManyTitle.setText(howMany);
-		
-		// Amount
-		
-		
-		// Metric dropdown
-		int valuesArrayId;
-		if(metric == "g") {
-			valuesArrayId = R.array.kilogram_choices;
-		}
-		else {
-			valuesArrayId = R.array.litre_choices;
-		}
-		Spinner metricDropDown = (Spinner) mRootView.findViewById(R.id.metricDropDown);  
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(), valuesArrayId, android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		metricDropDown.setAdapter(adapter);
-		
 	}
 	
 	public void getReasons() {
@@ -152,6 +156,7 @@ public class ItemFragment extends FTFragment {
 			button.setOnClickListener(new View.OnClickListener() {
 	             public void onClick(View v) {
 	            	 setReasonId(v.getId());
+	            	 Log.d("reason is: ", Integer.toString(v.getId()));
 	             }
 	        });
 			

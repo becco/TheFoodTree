@@ -79,7 +79,7 @@ public class CategoriesFragment extends FTFragment implements View.OnClickListen
    
             @Override 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) { 
-
+            	
             	Ingredient ingredient = mListValues.get(position);
             	
             	FTFragment fragment = new ItemFragment();
@@ -133,6 +133,8 @@ public class CategoriesFragment extends FTFragment implements View.OnClickListen
 		mListValues = mDataSource.getIngredientsRange(query);
     	ArrayAdapter<Ingredient> adapter = new ArrayAdapter<Ingredient>(getActivity(), R.layout.ui_row_item, R.id.textView1, mListValues);
     	mListView.setAdapter(adapter);
+    	
+    	Log.d("list", mListValues.toString());
 	}
 	
 }

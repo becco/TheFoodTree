@@ -11,6 +11,15 @@ public class Ingredient implements Parcelable{
 	private double costPerOne;
 	private int measureByQuantity;
 	private int categoryId;
+	
+	public Ingredient(int id, String name, double costPerOne, String metric, int measureByQuantity, int categoryId) {
+		this.id = id;
+		this.name = name;
+		this.metric = metric;
+		this.costPerOne = costPerOne;
+		this.measureByQuantity = measureByQuantity;
+		this.categoryId = categoryId;
+	}
 
 	public int getId() {
 		return id;
@@ -63,10 +72,6 @@ public class Ingredient implements Parcelable{
 	@Override
 	public String toString() {
 		return name;
-	}
-
-	public void setIngredient(String value) {
-		this.name = value;
 	}
 
 	@Override
