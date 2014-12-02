@@ -28,6 +28,7 @@ public class DatabaseHelper extends SQLiteAssetHelper {
 	public static final String COLUMN_DATE = "date";
 	public static final String COLUMN_REASON_ID = "reason_id";
 	public static final String COLUMN_OTHER_REASON_ID = "other_reason_id";
+	public static final String COLUMN_SYNCED = "synced";
 	
 	
 

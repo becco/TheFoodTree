@@ -135,6 +135,7 @@ public class CategoriesFragment extends FTFragment implements View.OnClickListen
     	mListView.setAdapter(adapter);
     	
     	Log.d("list", mListValues.toString());
+    	Log.d("query", query);
 	}
 	
 }

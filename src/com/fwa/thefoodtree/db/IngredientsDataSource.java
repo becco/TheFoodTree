@@ -16,6 +16,7 @@ public class IngredientsDataSource {
 	private DatabaseHelper dbHelper;
 
 	String mQuery;
+	
 
 	private String[] allColumns = { DatabaseHelper.COLUMN_ID,
 			DatabaseHelper.COLUMN_NAME, DatabaseHelper.COLUMN_METRIC,
