@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.09"
+        android:text="@string/register_text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/nameText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="@string/enter_name" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/emailText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.00"
+        android:inputType="textEmailAddress|textPersonName"
+        android:text="@string/enter_email" />
+
+    <EditText
+        android:id="@+id/passwordText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.00"
+        android:inputType="textPassword"
+        android:text="@string/enter_password" />
+
+    <Button
+        android:id="@+id/registerSubmit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.01"
+        android:text="Button" />
+
+</LinearLayout>

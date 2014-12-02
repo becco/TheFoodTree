@@ -59,5 +59,11 @@
         <item>L</item>
         <item>ml</item>
     </string-array>
+    
+    <!-- Register/login -->
+    <string name="register_text">Welcome to The Food Tree, please register</string>
+    <string name="enter_name">Rebecca</string>
+    <string name="enter_email">rebeccarich1@gmail.com</string>
+    <string name="enter_password">Coca_Cola1</string>
 </resources>
  

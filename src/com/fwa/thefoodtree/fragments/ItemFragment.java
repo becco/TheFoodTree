@@ -78,14 +78,6 @@ public class ItemFragment extends FTFragment {
 		String muchMany = "much";
 		int valuesArrayId;
 		
-		// How many text view
-		String howManyTitleFormat = mRootView.getContext().getString(R.string.how_many_label); 
-		String howMany = String.format(howManyTitleFormat, muchMany + " " + mName);
-		howManyTitle.setText(howMany);		
-		
-		if(mMeasuredByQuantity == 1) {
-			muchMany = "many";
-		}
 		
 		// Metric dropdown
 		if(mMetric == "g") {
@@ -99,6 +91,24 @@ public class ItemFragment extends FTFragment {
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		metricDropDown.setAdapter(adapter);
 		
+		if(mMeasuredByQuantity == 1) {
+			muchMany = "many";
+			metricDropDown.setVisibility(View.GONE);
+		}
+		
+		// How many text view
+		String howManyTitleFormat = mRootView.getContext().getString(R.string.how_many_label); 
+		String howMany = String.format(howManyTitleFormat, muchMany + " " + mName);
+		howManyTitle.setText(howMany);		
+		
+		
+		
+		Log.d("metric", mMetric);
+		
+		
+		
+		
+		
 		logButton.setOnClickListener(new View.OnClickListener() {
              public void onClick(View v) {
 
@@ -111,7 +121,7 @@ public class ItemFragment extends FTFragment {
             	 int reasonId = getReasonId();
             	 int otherReason = 0;
             	 
-            	 
+            	 // save the item
             	 
             	 ItemDataSource ds = new ItemDataSource(getActivity());
             	 ds.open();
@@ -125,14 +135,11 @@ public class ItemFragment extends FTFragment {
             	 Log.d("date", item.getDate());
             	 Log.d("reasonid", Integer.toString(item.getReasonId()));
             	 Log.d("otherreason", Integer.toString(item.getOtherReasonId()));
-            	 
-            	 //Item item = new Item(mName, totalCost, date, reasonId, mCatId, mId, otherReason);
-            	 
-            	 // save the item
              }
         });
 		otherReason.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+            	//TODO
             }
 		});
 	}
