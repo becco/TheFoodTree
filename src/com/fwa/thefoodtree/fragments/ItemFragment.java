@@ -4,8 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -141,6 +139,7 @@ public class ItemFragment extends FTFragment {
 				Log.d("otherreason", Integer.toString(item.getOtherReasonId()));
 
 				getNotSyncedItems();
+				proceedToConfirmation(item);
 			}
 		});
 		otherReason.setOnClickListener(new View.OnClickListener() {
@@ -148,6 +147,16 @@ public class ItemFragment extends FTFragment {
 				// TODO
 			}
 		});
+	}
+	
+	public void proceedToConfirmation(Item loggedItem) {
+    	
+    	FTFragment fragment = new ConfirmationFragment();
+		Bundle args = new Bundle();
+		args.putString(FTFragment.ARG_CATEGORY_ITEM, loggedItem.getName());	
+    	args.putParcelable(FTFragment.SELECTED_ITEM, loggedItem);
+		fragment.setArguments(args);
+		mAddedFragmentListener.onFragmentAdded(fragment);   
 	}
 
 	public void getNotSyncedItems() {

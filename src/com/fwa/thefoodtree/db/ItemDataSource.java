@@ -114,7 +114,7 @@ public class ItemDataSource {
 	public JSONArray getNotSyncedItemsJSON() {
 
 		Cursor cursor = database.query(DatabaseHelper.TABLE_ITEMS, allColumns,
-				null, null, null, null, null);
+				"synced = 0", null, null, null, null);
 
 		JSONArray array = this.getJSONFromCursor(cursor);
 		return array;

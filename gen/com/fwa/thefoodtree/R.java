@@ -139,17 +139,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int component_category_buttons=0x7f030004;
         public static final int component_list_alphabet=0x7f030005;
         public static final int fragment_categories=0x7f030006;
-        public static final int fragment_daily_report=0x7f030007;
-        public static final int fragment_item=0x7f030008;
-        public static final int fragment_log_ingredients=0x7f030009;
-        public static final int fragment_log_menu=0x7f03000a;
-        public static final int fragment_main=0x7f03000b;
-        public static final int navigation_drawer_list_item=0x7f03000c;
-        public static final int ui_alphabet_button=0x7f03000d;
-        public static final int ui_category_button=0x7f03000e;
-        public static final int ui_reason_button=0x7f03000f;
-        public static final int ui_row_item=0x7f030010;
-        public static final int ui_row_section=0x7f030011;
+        public static final int fragment_confirmation=0x7f030007;
+        public static final int fragment_daily_report=0x7f030008;
+        public static final int fragment_item=0x7f030009;
+        public static final int fragment_log_ingredients=0x7f03000a;
+        public static final int fragment_log_menu=0x7f03000b;
+        public static final int fragment_main=0x7f03000c;
+        public static final int navigation_drawer_list_item=0x7f03000d;
+        public static final int ui_alphabet_button=0x7f03000e;
+        public static final int ui_category_button=0x7f03000f;
+        public static final int ui_reason_button=0x7f030010;
+        public static final int ui_row_item=0x7f030011;
+        public static final int ui_row_section=0x7f030012;
     }
     public static final class menu {
         public static final int app=0x7f0c0000;

@@ -68,7 +68,7 @@ public class FTRegisterActivity extends Activity {
     
     public boolean register(String name, String email, String password) {
 		Log.d("my output", "register");
-		String url = "http://www.rebeccarichards.ie/throw/register.php";
+		String url = "http://www.rebeccarichards.ie/thefoodtree/register.php";
 		mHttpClient = new DefaultHttpClient();
 	    HttpPost httppost = new HttpPost(url);
 
@@ -125,7 +125,7 @@ public class FTRegisterActivity extends Activity {
                 throw new AssertionError(e);
             }
             Log.d("my", "auth uri");
-            final HttpPost post = new HttpPost("http://www.rebeccarichards.ie/throw/auth.php");
+            final HttpPost post = new HttpPost("http://www.rebeccarichards.ie/thefoodtree/auth.php");
             post.addHeader(entity.getContentType());
             post.setEntity(entity);
             //maybeCreateHttpClient();

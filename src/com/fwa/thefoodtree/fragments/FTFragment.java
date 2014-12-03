@@ -17,6 +17,7 @@ public class FTFragment extends Fragment {
 	public static final String SELECTED_ITEM = "selected_item";
 	
 	OnSwitchFragmentListener mSwitchFragmentListener;
+	OnAddedFragmentListener mAddedFragmentListener;
 	
 
     public FTFragment() {
@@ -32,11 +33,21 @@ public class FTFragment extends Fragment {
 			throw new ClassCastException(activity.toString()
 					+ " must implement OnSwitchFragmentListener");
 		}
+		try {
+			mAddedFragmentListener = (OnAddedFragmentListener) activity;
+		} catch (ClassCastException e) {
+			throw new ClassCastException(activity.toString()
+					+ " must implement OnAddedFragmentListener");
+		}
 	}
     
     /* Interface for swapping in and out fragments */
     public interface OnSwitchFragmentListener {
         public void onFragmentSwitched(FTFragment fragment);
+    }
+    /* Interface for swapping in and out fragments */
+    public interface OnAddedFragmentListener {
+        public void onFragmentAdded(FTFragment fragment);
     }
     /* Get the title of the fragment */
     public String getTitle() {

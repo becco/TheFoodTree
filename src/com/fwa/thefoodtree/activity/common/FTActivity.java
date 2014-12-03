@@ -14,6 +14,7 @@ import com.fwa.thefoodtree.fragments.FTFragment;
 
 public class FTActivity extends Activity implements
 		FTFragment.OnSwitchFragmentListener,
+		FTFragment.OnAddedFragmentListener,
 		OnBackStackChangedListener {
 
 	public FTActivity() {
@@ -36,6 +37,19 @@ public class FTActivity extends Activity implements
 				.replace(R.id.content_frame, fragment)
 				.setBreadCrumbTitle(title).setBreadCrumbShortTitle(title)
 				.addToBackStack(null).commit();
+		
+		this.setActionBarTitle(title);
+	}
+	
+	/* @interface Handles swapping in and out fragments */
+	@Override
+	public void onFragmentAdded(FTFragment fragment) {
+		String title = fragment.getTitle();//"Log fruit or veg";//args.getString(FTFragment.ARG_CATEGORY_ITEM);
+		FragmentManager fragmentManager = getFragmentManager();
+		fragmentManager.beginTransaction()
+				.add(R.id.content_frame, fragment).commit();
+//				.setBreadCrumbTitle(title).setBreadCrumbShortTitle(title)
+//				.addToBackStack(null).commit();
 		
 		this.setActionBarTitle(title);
 	}

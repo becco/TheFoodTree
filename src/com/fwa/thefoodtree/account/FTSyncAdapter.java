@@ -63,16 +63,16 @@ public class FTSyncAdapter extends AbstractThreadedSyncAdapter {
 			mItemDataSource.open();
 			JSONArray mNotSyncedItems = mItemDataSource.getNotSyncedItemsJSON();
 			Log.d("json", mNotSyncedItems.toString());
-			String response = this.postToServer(mNotSyncedItems);
-			Log.d("json", response);
-			
-			if(response == "success") {
-				//update the db SET synced = 1
-				mItemDataSource.updateSyncedItems(mNotSyncedItems);
-			}
-			else {
-				
-			}
+//			String response = this.postToServer(mNotSyncedItems);
+//			Log.d("json", response);
+//			
+//			if(response == "success") {
+//				//update the db SET synced = 1
+//				mItemDataSource.updateSyncedItems(mNotSyncedItems);
+//			}
+//			else {
+//				
+//			}
 			
 			
 		} catch (OperationCanceledException e) {
@@ -101,7 +101,7 @@ public class FTSyncAdapter extends AbstractThreadedSyncAdapter {
 	
 	public String postToServer(JSONArray json) {
 		Log.d("my output", "postToServer");
-		String url = "http://www.rebeccarichards.ie/throw/register.php";
+		String url = "http://www.rebeccarichards.ie/thefoodtree/register.php";
 	    HttpPost httpPost = new HttpPost(url);
 	    HttpClient httpClient = new DefaultHttpClient();
 	    HttpContext httpContext = new BasicHttpContext();
