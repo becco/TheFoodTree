@@ -156,7 +156,8 @@ public class ItemFragment extends FTFragment {
 		args.putString(FTFragment.ARG_CATEGORY_ITEM, loggedItem.getName());	
     	args.putParcelable(FTFragment.SELECTED_ITEM, loggedItem);
 		fragment.setArguments(args);
-		mAddedFragmentListener.onFragmentAdded(fragment);   
+		//mAddedFragmentListener.onFragmentAdded(fragment);   
+		mSwitchFragmentListener.onFragmentSwitched(fragment);
 	}
 
 	public void getNotSyncedItems() {
