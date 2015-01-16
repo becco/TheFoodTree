@@ -63,6 +63,7 @@ public class FTSyncAdapter extends AbstractThreadedSyncAdapter {
 			mItemDataSource.open();
 			JSONArray mNotSyncedItems = mItemDataSource.getNotSyncedItemsJSON();
 			Log.d("json", mNotSyncedItems.toString());
+			
 //			String response = this.postToServer(mNotSyncedItems);
 //			Log.d("json", response);
 //			
@@ -99,9 +100,25 @@ public class FTSyncAdapter extends AbstractThreadedSyncAdapter {
 		}
 	}
 	
+//  public static HttpResponse uploadFile(String data, String accountName) throws ClientProtocolException, IOException {
+//	Log.d("my", "uploading: "+data);
+//	HttpClient httpClient = new DefaultHttpClient();
+//	MultipartEntity entity = new MultipartEntity(HttpMultipartMode.BROWSER_COMPATIBLE);
+//	
+//	File fileToUpload = new File(data);
+//	FileBody fileBody = new FileBody(fileToUpload);
+//	entity.addPart("upload_file", fileBody);
+//	entity.addPart("username", new StringBody(accountName));
+//
+//	HttpPost httpPost = new HttpPost("http://www.thefoodtree.rebeccarichards.ie/upload.php");
+//	httpPost.setEntity(entity);
+//	HttpResponse response = httpClient.execute(httpPost);
+//	return response;
+//}
+	
 	public String postToServer(JSONArray json) {
 		Log.d("my output", "postToServer");
-		String url = "http://www.thefoodtree.rebeccarichards.ie/register.php";
+		String url = "http://www.thefoodtree.rebeccarichards.ie/add.php";
 	    HttpPost httpPost = new HttpPost(url);
 	    HttpClient httpClient = new DefaultHttpClient();
 	    HttpContext httpContext = new BasicHttpContext();

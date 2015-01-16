@@ -68,7 +68,7 @@ public class NetworkUtilities {
     public static final String USER_AGENT = "AuthenticationService/1.0";
     public static final int REGISTRATION_TIMEOUT = 30 * 1000; // ms
     //public static final String BASE_URL ="https://samplesyncadapter.appspot.com";
-    public static final String BASE_URL ="http://rebeccarichards.ie/throw";
+    public static final String BASE_URL ="http://thefoodtree.rebeccarichards.ie";
     public static final String AUTH_URI = BASE_URL + "/auth.php";
     /*public static final String FETCH_FRIEND_UPDATES_URI =
         BASE_URL + "/fetch_friend_updates";
@@ -215,25 +215,25 @@ public class NetworkUtilities {
         return NetworkUtilities.performOnBackgroundThread(runnable);
     }
     
-    public static void downloadFile(String name, String type) throws IOException {
-    	
-    	String url = "http://rebeccarichards.ie/throw/uploads/"+name;
-    	Log.d("downloading: ", url);
-    	Bitmap image;
-    	URL requestURL = new URL(url);
-    	URLConnection connection = requestURL.openConnection();
-    	InputStream response = connection.getInputStream();
-    	
-    	image = BitmapFactory.decodeStream(response);
-    	
-    	FileOutputStream fos = null;
-    	fos = new FileOutputStream(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Throw/"+name); 
-    	
-    	//only JPEGS for the moment
-    	image.compress(CompressFormat.JPEG, 75, fos);
-
-
-    }
+//    public static void downloadFile(String name, String type) throws IOException {
+//    	
+//    	String url = "http://thefoodtree.rebeccarichards.ie/uploads/"+name;
+//    	Log.d("downloading: ", url);
+//    	Bitmap image;
+//    	URL requestURL = new URL(url);
+//    	URLConnection connection = requestURL.openConnection();
+//    	InputStream response = connection.getInputStream();
+//    	
+//    	image = BitmapFactory.decodeStream(response);
+//    	
+//    	FileOutputStream fos = null;
+//    	fos = new FileOutputStream(Environment.getExternalStorageDirectory().getAbsolutePath()+"/Throw/"+name); 
+//    	
+//    	//only JPEGS for the moment
+//    	image.compress(CompressFormat.JPEG, 75, fos);
+//
+//
+//    }
     //upload new file to server
 //    public static HttpResponse uploadFile(String data, String accountName) throws ClientProtocolException, IOException {
 //    	Log.d("my", "uploading: "+data);
@@ -268,7 +268,7 @@ public class NetworkUtilities {
 //
 //        HttpEntity entity = null;
 //        entity = new UrlEncodedFormEntity(params);
-//        final HttpPost post = new HttpPost("http://rebeccarichards.ie/throw/list.php");
+//        final HttpPost post = new HttpPost("http://thefoodtree.rebeccarichards.ie/list.php");
 //        post.addHeader(entity.getContentType());
 //        post.setEntity(entity);
 //        maybeCreateHttpClient();
