@@ -101,7 +101,7 @@ public class FTSyncAdapter extends AbstractThreadedSyncAdapter {
 	
 	public String postToServer(JSONArray json) {
 		Log.d("my output", "postToServer");
-		String url = "http://www.rebeccarichards.ie/thefoodtree/register.php";
+		String url = "http://www.thefoodtree.rebeccarichards.ie/register.php";
 	    HttpPost httpPost = new HttpPost(url);
 	    HttpClient httpClient = new DefaultHttpClient();
 	    HttpContext httpContext = new BasicHttpContext();

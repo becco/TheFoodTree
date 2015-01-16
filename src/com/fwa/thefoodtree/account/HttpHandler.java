@@ -22,7 +22,7 @@ public class HttpHandler {
 	
 	public String register(String name, String email, String password) {
 		
-		url = "http://www.rebeccarichards.ie/thefoodtree/register.php";
+		url = "http://www.thefoodtree.rebeccarichards.ie/register.php";
 		httpclient = new DefaultHttpClient();
 	    httppost = new HttpPost(url);
 	    String response;

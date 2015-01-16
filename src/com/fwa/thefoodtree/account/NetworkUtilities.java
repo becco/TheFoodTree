@@ -245,7 +245,7 @@ public class NetworkUtilities {
 //		entity.addPart("upload_file", fileBody);
 //		entity.addPart("username", new StringBody(accountName));
 //
-//		HttpPost httpPost = new HttpPost("http://www.rebeccarichards.ie/thefoodtree/upload.php");
+//		HttpPost httpPost = new HttpPost("http://www.thefoodtree.rebeccarichards.ie/upload.php");
 //		httpPost.setEntity(entity);
 //		HttpResponse response = httpClient.execute(httpPost);
 //    	return response;
