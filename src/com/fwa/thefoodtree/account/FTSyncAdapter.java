@@ -1,14 +1,18 @@
 package com.fwa.thefoodtree.account;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.util.EntityUtils;
@@ -63,17 +67,23 @@ public class FTSyncAdapter extends AbstractThreadedSyncAdapter {
 			mItemDataSource.open();
 			JSONArray mNotSyncedItems = mItemDataSource.getNotSyncedItemsJSON();
 			Log.d("json", mNotSyncedItems.toString());
+			Log.d("json", Integer.toString(mNotSyncedItems.length()));
 			
-//			String response = this.postToServer(mNotSyncedItems);
-//			Log.d("json", response);
-//			
-//			if(response == "success") {
-//				//update the db SET synced = 1
-//				mItemDataSource.updateSyncedItems(mNotSyncedItems);
-//			}
-//			else {
-//				
-//			}
+			if(mNotSyncedItems.length() > 0) {
+				String response = this.postToServer(mNotSyncedItems);
+				Log.d("json", response);
+				
+				if(response.equals("success")) {
+					//update the db SET synced = 1
+					Log.d("my output", "update the db");
+					mItemDataSource.updateSyncedItems(mNotSyncedItems);
+				}
+				else {
+//					Log.d("my output", "update the db");
+//					mItemDataSource.updateSyncedItems(mNotSyncedItems);
+				}
+			}
+			
 			
 			
 		} catch (OperationCanceledException e) {
@@ -124,23 +134,48 @@ public class FTSyncAdapter extends AbstractThreadedSyncAdapter {
 	    HttpContext httpContext = new BasicHttpContext();
 	    String jsonString = null;
 	    try {
-
-	        StringEntity se = new StringEntity(json.toString());
-
-	        httpPost.setEntity(se);
-	        httpPost.setHeader("Accept", "application/json");
-	        httpPost.setHeader("Content-type", "application/json");
-
-
-	        HttpResponse response = httpClient.execute(httpPost, httpContext); //execute your request and parse response
-	        HttpEntity entity = response.getEntity();
-
-	        jsonString = EntityUtils.toString(entity); //if response in JSON format
+	    	
+//	        StringEntity se = new StringEntity(json.toString());
+//
+//	        httpPost.setEntity(se);
+//	        httpPost.setHeader("Accept", "application/json");
+//	        httpPost.setHeader("Content-type", "application/json");
+//
+//	        Log.d("my output", "try "+se);
+//	        
+//	        HttpResponse response = httpClient.execute(httpPost, httpContext); //execute your request and parse response
+//	        HttpEntity entity = response.getEntity();
+//
+//	        jsonString = EntityUtils.toString(entity); //if response in JSON format
+//	        
+//	        Log.d("my output", "jsonString: "+jsonString);
+//	        Log.d("response", response.toString());
+//	        Log.d("entity", entity.toString());
+	    	// url where the data will be posted
+	    	
+	    	 
+	    	// add your data
+	    	List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+	    	nameValuePairs.add(new BasicNameValuePair("json", json.toString()));
+	    	 
+	    	httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+	    	 
+	    	// execute HTTP post request
+	    	HttpResponse response = httpClient.execute(httpPost);
+	    	HttpEntity resEntity = response.getEntity();
+	    	 
+	    	//if (resEntity != null) {
+	    	     
+	    	jsonString = EntityUtils.toString(resEntity).trim();
+	    	     
+	    	    // you can add an if statement here and do other actions based on the response
+	    	//}
 
 	    } catch (Exception e) {
+	    	Log.d("my output", "catch "+e.toString());
 	        e.printStackTrace();
 	    }
-	    Log.d("my output", jsonString);
+	    Log.d("my output", "jsonString: "+jsonString);
 	    return jsonString;
 
 	}

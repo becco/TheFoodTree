@@ -1,6 +1,5 @@
 package com.fwa.thefoodtree.db;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +12,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 public class ItemDataSource {
 
@@ -121,17 +121,24 @@ public class ItemDataSource {
 	}
 	
 	public void updateSyncedItems(JSONArray jsonArray) {
-		ArrayList<String> ids = new ArrayList<String>();
+		//ArrayList<Integer> ids = new ArrayList<Integer>();
 		for(int i = 0; i<jsonArray.length(); i++) {
 			try {
 				JSONObject obj = jsonArray.getJSONObject(i);
-				ids.add(obj.getString("_id"));
+//				ids.add(obj.getInt("_id"));
+				//figure out how to update the db here
+				ContentValues newValues = new ContentValues();
+				newValues.put(DatabaseHelper.COLUMN_SYNCED, 1);
+				
+				Log.d("my output", obj.getString("_id"));
+
+				database.update(DatabaseHelper.TABLE_ITEMS, newValues, "_id="+obj.getString("_id"), null);
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		//figure out how to update the db here
+		
 	}
 
 	public List<Item> getNotSyncedItems() {
